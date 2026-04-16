@@ -115,11 +115,11 @@ export default function Footer() {
                   type="email"
                   required
                   placeholder="Enter your email"
-                  className="w-full bg-[hsl(var(--background))]/20 border border-[hsl(var(--border))] px-3 py-2.5 text-sm text-[hsl(var(--foreground))] placeholder:text-[hsl(var(--muted-foreground))] outline-none focus:border-[hsl(var(--primary))]"
+                  className="w-full bg-[hsl(var(--background))]/20 border border-[hsl(var(--border))] px-3 py-2.5 text-sm text-[hsl(var(--foreground))] placeholder:text-[hsl(var(--muted-foreground))] outline-none focus:border-[hsl(var(--primary))] rounded-full"
                 />
                 <button
                   type="submit"
-                  className="w-full bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] font-display tracking-widest text-xs px-4 py-3 hover:brightness-110 transition-all duration-200"
+                  className="w-full bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] font-display tracking-widest text-xs px-4 py-3 hover:brightness-110 transition-all duration-200 rounded-full"
                 >
                   SUBSCRIBE
                 </button>
@@ -219,7 +219,7 @@ export default function Footer() {
               </p>
             </div>
             <Link href="/donate">
-              <div className="inline-block bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] font-display tracking-widest text-sm px-6 py-3 hover:brightness-110 transition-all duration-200 cursor-pointer">
+              <div className="inline-block bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] font-display tracking-widest text-sm px-6 py-3 hover:brightness-110 transition-all duration-200 cursor-pointer rounded-full">
                 DONATE NOW →
               </div>
             </Link>

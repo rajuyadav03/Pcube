@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+
 import { Switch, Route, Router as WouterRouter } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AnimatePresence } from "framer-motion";
@@ -13,7 +14,8 @@ import Sponsors from "@/pages/Sponsors";
 import GetInvolved from "@/pages/GetInvolved";
 import Media from "@/pages/Media";
 import Contact from "@/pages/Contact";
-import NotFound from "@/pages/not-found";
+import NotFound from "@/pages/not-found"; import ScrollToTop from "./components/ScrollToTop";
+
 
 const queryClient = new QueryClient();
 
@@ -27,7 +29,7 @@ function AppRoutes() {
         <Route path="/impact" component={Impact} />
         <Route path="/donate" component={Donate} />
         <Route path="/sponsors" component={Sponsors} />
-        <Route path="/get-involved" component={GetInvolved} /> 
+        <Route path="/get-involved" component={GetInvolved} />
         <Route path="/media" component={Media} />
         <Route path="/contact" component={Contact} />
         <Route component={NotFound} />
@@ -67,6 +69,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+        <ScrollToTop />
         <AppInner />
       </WouterRouter>
     </QueryClientProvider>

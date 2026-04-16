@@ -29,35 +29,35 @@ const hockeyPillars = [
 const expansionSports = [
   {
     sport: "Football",
-    icon: "⚽",
+    // icon: "⚽",
     phase: "Phase 1 — 2025",
     description:
       "Ground-level talent identification across Thane's municipal schools, followed by structured coaching and district tournament participation.",
   },
   {
     sport: "Athletics",
-    icon: "🏃",
+    // icon: "🏃",
     phase: "Phase 1 — 2025",
     description:
       "Track & field program with a focus on sprints, middle distance, and field events. Targeting state athletics championships within two years.",
   },
   {
     sport: "Cricket",
-    icon: "🏏",
+    // icon: "🏏",
     phase: "Phase 2 — 2026",
     description:
       "Batting, bowling, and fielding development with competitive league exposure and BCCI-pathway alignment.",
   },
   {
     sport: "Kabaddi",
-    icon: "🤼",
+    // icon: "🤼",
     phase: "Phase 2 — 2026",
     description:
       "Reviving traditional Indian sport with modern training methodology and systematic tournament pipeline.",
   },
   {
     sport: "Badminton",
-    icon: "🏸",
+    // icon: "🏸",
     phase: "Phase 3 — 2027",
     description:
       "Court-based program with technical development and inter-district tournament exposure targeting state ranking.",
@@ -184,9 +184,9 @@ export default function Programs() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <span className="text-4xl">🏑</span>
-                <span className="font-display text-sm tracking-widest border border-[hsl(var(--primary))] text-[hsl(var(--primary))] px-3 py-1">
-                  ● ACTIVE PROGRAM
+                {/* <span className="text-4xl">🏑</span> */}
+                <span className="font-display text-sm tracking-widest border border-[hsl(var(--primary))] text-[hsl(var(--primary))] px-3 py-1 rounded-full">
+                  ACTIVE PROGRAM
                 </span>
               </div>
               <h2 className="font-display text-5xl lg:text-6xl tracking-tight text-[hsl(var(--foreground))] mb-4">

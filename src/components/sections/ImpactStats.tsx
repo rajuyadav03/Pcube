@@ -77,12 +77,12 @@ export default function ImpactStats() {
           ))}
         </div>
         <div className="mt-12 text-center">
-          <div className="inline-flex items-center gap-3 border border-[hsl(var(--primary))] px-6 py-3">
+          {/* <div className="inline-flex items-center gap-3 border border-[hsl(var(--primary))] px-6 py-3">
             <span className="w-2 h-2 rounded-full bg-[hsl(var(--primary))] animate-pulse" />
             <span className="font-display text-sm tracking-widest text-[hsl(var(--primary))]">
               12A & 80G CERTIFIED · ALL DONATIONS TAX-EXEMPT
             </span>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
