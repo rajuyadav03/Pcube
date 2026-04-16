@@ -32,3 +32,4 @@ Recommended Vercel settings:
 - Output directory: `dist/public`
 
 If you deploy from the Vercel UI, just point it at the `pcube-foundation` folder and confirm the settings above.
+# Pcube
