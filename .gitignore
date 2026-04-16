@@ -3,4 +3,5 @@ dist
 *.log
 *.tsbuildinfo
 # Optional npm cache directory
-
+.agents
+.claude
