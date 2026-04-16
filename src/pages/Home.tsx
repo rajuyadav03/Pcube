@@ -703,18 +703,7 @@ export default function Home() {
               <ProgramCard
                 key={prog.sport}
                 {...prog}
-                icon={
-                  prog.sport === "Field Hockey"
-                    ? "🏑"
-                    : prog.sport === "Football"
-                      ? "⚽"
-                      : prog.sport === "Athletics"
-                        ? "🏃"
-                        : prog.sport === "Cricket"
-                          ? "🏏"
-                          : prog.sport === "Kabaddi"
-                            ? "🤼"
-                            : "🏸"
+                icon={null
                 }
               />
             ))}

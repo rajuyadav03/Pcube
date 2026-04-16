@@ -221,7 +221,7 @@ export default function Sponsors() {
               Get In Touch
             </span>
             <h2 className="font-display text-5xl lg:text-6xl tracking-tighter text-[hsl(var(--foreground))] mt-6 uppercase leading-none">
-              Start A<br/>Conversation
+              Start A<br />Conversation
             </h2>
           </div>
 

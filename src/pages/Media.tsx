@@ -250,11 +250,10 @@ export default function Media() {
                 onClick={() => setActiveCategory(cat)}
                 role="tab"
                 aria-selected={activeCategory === cat}
-                className={`font-display text-xs tracking-[0.1em] px-4 py-2 border transition-all duration-200 uppercase ${
-                  activeCategory === cat
+                className={`font-display text-xs tracking-[0.1em] px-4 py-2 border transition-all duration-200 uppercase ${activeCategory === cat
                     ? "border-[hsl(var(--primary))] text-[hsl(var(--primary))] bg-[hsl(var(--primary))]/5"
                     : "border-[hsl(var(--border))] text-[hsl(var(--muted-foreground))] hover:border-[hsl(var(--primary))]/40"
-                }`}
+                  }`}
                 data-testid={`tab-gallery-${cat.toLowerCase()}`}
               >
                 {cat}

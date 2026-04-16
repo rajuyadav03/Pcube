@@ -32,15 +32,14 @@ export default function ProgramCard({ sport, description, status, icon, accentCo
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/20 to-black/80" />
-            <div className="absolute top-4 left-4 w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center justify-center text-xl">
+            {/* <div className="absolute top-4 left-4 w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center justify-center text-xl">
               {icon}
-            </div>
+            </div> */}
             <span
-              className={`absolute bottom-4 right-4 text-[10px] font-display tracking-[0.2em] px-3 py-1.5 rounded-full border ${
-                status === "active"
+              className={`absolute bottom-4 right-4 text-[10px] font-display tracking-[0.2em] px-3 py-1.5 rounded-full border ${status === "active"
                   ? "border-[hsl(var(--primary))]/40 text-[hsl(var(--primary))] bg-[hsl(var(--primary))]/5"
                   : "border-white/20 text-white/50 bg-white/5"
-              } backdrop-blur-sm`}
+                } backdrop-blur-sm`}
             >
               {status === "active" ? "● ACTIVE" : "EXPANDING"}
             </span>
@@ -54,11 +53,10 @@ export default function ProgramCard({ sport, description, status, icon, accentCo
                 {icon}
               </div>
               <span
-                className={`text-[10px] font-display tracking-[0.2em] px-3 py-1.5 rounded-full border ${
-                  status === "active"
+                className={`text-[10px] font-display tracking-[0.2em] px-3 py-1.5 rounded-full border ${status === "active"
                     ? "border-[hsl(var(--primary))]/40 text-[hsl(var(--primary))]"
                     : "border-white/20 text-white/50"
-                }`}
+                  }`}
               >
                 {status === "active" ? "● ACTIVE" : "EXPANDING"}
               </span>

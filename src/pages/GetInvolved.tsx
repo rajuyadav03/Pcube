@@ -269,11 +269,10 @@ export default function GetInvolved() {
                       key={role.title}
                       type="button"
                       onClick={() => toggleRole(role.title)}
-                      className={`text-xs text-left px-3 py-2 border transition-all duration-200 ${
-                        selectedRoles.includes(role.title)
+                      className={`text-xs text-left px-3 py-2 border transition-all duration-200 ${selectedRoles.includes(role.title)
                           ? "border-[hsl(var(--primary))] text-[hsl(var(--primary))] bg-[hsl(var(--primary))]/5"
                           : "border-[hsl(var(--border))] text-[hsl(var(--muted-foreground))]"
-                      }`}
+                        }`}
                       data-testid={`toggle-role-${role.title.toLowerCase().replace(/\s+/g, "-")}`}
                     >
                       {role.title}
@@ -367,7 +366,7 @@ export default function GetInvolved() {
                 className="bg-[hsl(var(--background))] border border-[hsl(var(--border))] p-8 hover:border-[hsl(var(--primary))]/30 transition-colors"
               >
                 <div className="w-10 h-10 border border-[hsl(var(--border))] rounded-full flex items-center justify-center mb-6">
-                  <span className="font-display text-lg text-[hsl(var(--primary))]">0{i+1}</span>
+                  <span className="font-display text-lg text-[hsl(var(--primary))]">0{i + 1}</span>
                 </div>
                 <h3 className="font-display text-2xl tracking-wider text-[hsl(var(--foreground))] mb-3 uppercase">
                   {prog.title}

@@ -298,11 +298,10 @@ export default function Programs() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.12, duration: 0.6 }}
                 onClick={() => setActiveStep(i)}
-                className={`flex-1 p-8 border-r border-b lg:border-b-0 border-[hsl(var(--border))] cursor-pointer transition-all duration-300 ${
-                  activeStep === i
+                className={`flex-1 p-8 border-r border-b lg:border-b-0 border-[hsl(var(--border))] cursor-pointer transition-all duration-300 ${activeStep === i
                     ? "bg-[hsl(var(--primary))]/5 border-r-[hsl(var(--primary))]"
                     : "hover:bg-[hsl(var(--card))]"
-                }`}
+                  }`}
                 data-testid={`step-${step.label.toLowerCase()}`}
               >
                 <div
