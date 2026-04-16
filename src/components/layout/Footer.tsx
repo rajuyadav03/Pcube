@@ -132,7 +132,7 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <img
-                src="/logo.jpeg"
+                src="/logo-2.png"
                 alt="PCube Foundation logo"
                 className="w-10 h-10 rounded-sm object-cover"
                 loading="lazy"

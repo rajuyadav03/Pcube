@@ -82,7 +82,7 @@ export default function Navbar() {
           <Link href="/" data-testid="link-logo">
             <div className="flex items-center gap-2 px-3 sm:px-5 py-2 cursor-pointer group">
               <img
-                src="/logo.jpeg"
+                src="/logo-2.png"
                 alt="PCube Foundation logo"
                 className="w-7 h-7 sm:w-8 sm:h-8 rounded-sm object-cover transition-transform duration-300 group-hover:scale-110"
                 loading="eager"
