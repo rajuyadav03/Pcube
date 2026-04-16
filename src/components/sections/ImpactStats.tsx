@@ -9,9 +9,22 @@ interface Stat {
 }
 
 const stats: Stat[] = [
-  { value: 2, label: "National Selections", description: "Students competing at the national level" },
-  { value: 47, label: "Children Supported", description: "Active athletes receiving coaching & mentorship" },
-  { value: 3, suffix: "+", label: "Years Active", description: "Building structured pathways since 2021" },
+  {
+    value: 2,
+    label: "National Selections",
+    description: "Students competing at the national level",
+  },
+  {
+    value: 47,
+    label: "Children Supported",
+    description: "Active athletes receiving coaching & mentorship",
+  },
+  {
+    value: 3,
+    suffix: "+",
+    label: "Years Active",
+    description: "Building structured pathways since 2021",
+  },
 ];
 
 function AnimatedCounter({ value, suffix = "", label, description }: Stat) {
@@ -47,29 +60,39 @@ function AnimatedCounter({ value, suffix = "", label, description }: Stat) {
           requestAnimationFrame(tick);
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.5 },
     );
     observer.observe(el);
     return () => observer.disconnect();
   }, [value, suffix, prefersReduced]);
 
   return (
-    <div className="text-center" data-testid={`stat-${label.toLowerCase().replace(/\s+/g, "-")}`}>
+    <div
+      className="text-center"
+      data-testid={`stat-${label.toLowerCase().replace(/\s+/g, "-")}`}
+    >
       <span
         ref={countRef}
-        className="font-display text-6xl lg:text-8xl text-[hsl(var(--primary))] tabular-nums"
+        className="font-display text-5xl sm:text-6xl lg:text-8xl text-[hsl(var(--primary))] tabular-nums"
       >
         0{suffix}
       </span>
-      <p className="font-display text-sm tracking-widest text-[hsl(var(--foreground))] mt-2 mb-1">{label.toUpperCase()}</p>
-      <p className="text-[hsl(var(--muted-foreground))] text-sm max-w-xs mx-auto">{description}</p>
+      <p className="font-display text-sm tracking-widest text-[hsl(var(--foreground))] mt-2 mb-1">
+        {label.toUpperCase()}
+      </p>
+      <p className="text-[hsl(var(--muted-foreground))] text-sm max-w-xs mx-auto">
+        {description}
+      </p>
     </div>
   );
 }
 
 export default function ImpactStats() {
   return (
-    <section aria-label="Impact statistics" className="py-20 lg:py-28 border-y border-[hsl(var(--border))]">
+    <section
+      aria-label="Impact statistics"
+      className="py-16 sm:py-20 lg:py-28 border-y border-[hsl(var(--border))]"
+    >
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-6 lg:gap-0 md:divide-x md:divide-[hsl(var(--border))]">
           {stats.map((stat) => (

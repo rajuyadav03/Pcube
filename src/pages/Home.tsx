@@ -200,7 +200,7 @@ export default function Home() {
       <section
         id="main-content"
         aria-label="Hero"
-        className="relative min-h-[100dvh] flex flex-col justify-center overflow-hidden py-24"
+        className="relative min-h-[100dvh] flex flex-col justify-center overflow-hidden py-20 sm:py-24"
       >
         {/* Background Textures */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -211,7 +211,7 @@ export default function Home() {
           <div className="absolute inset-0 noise-overlay" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20 items-center">
           <div className="lg:col-span-7">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -249,19 +249,22 @@ export default function Home() {
                 ARENAS.
               </h1>
 
-              <p className="text-[hsl(var(--muted-foreground))] text-lg md:text-xl leading-relaxed max-w-xl mb-12">
+              <p className="text-[hsl(var(--muted-foreground))] text-base sm:text-lg md:text-xl leading-relaxed max-w-xl mb-10 sm:mb-12">
                 At PCube Foundation, we discover and train underprivileged youth
-                in India's towns and villages. Through expert coaching, equipment
-                support, and competition pathways, we create future sports
-                champions. <span className="text-[hsl(var(--foreground))] font-medium">Prospect. Progress. Play.</span>
+                in India's towns and villages. Through expert coaching,
+                equipment support, and competition pathways, we create future
+                sports champions.{" "}
+                <span className="text-[hsl(var(--foreground))] font-medium">
+                  Prospect. Progress. Play.
+                </span>
               </p>
 
-              <div className="flex flex-wrap gap-5 items-center">
+              <div className="flex w-full flex-col sm:w-auto sm:flex-row sm:flex-wrap gap-3 sm:gap-5 items-stretch sm:items-center">
                 <Link href="/donate">
                   <motion.button
                     whileHover={{ scale: 1.04 }}
                     whileTap={{ scale: 0.96 }}
-                    className="group relative px-10 py-5 bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] font-display tracking-[0.15em] uppercase text-sm rounded-full flex items-center gap-3 overflow-hidden shadow-2xl shadow-[hsl(var(--primary))]/20"
+                    className="group relative w-full sm:w-auto justify-center px-7 sm:px-10 py-4 sm:py-5 bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] font-display tracking-[0.15em] uppercase text-xs sm:text-sm rounded-full flex items-center gap-3 overflow-hidden shadow-2xl shadow-[hsl(var(--primary))]/20"
                   >
                     <span>Donate Now</span>
                     <div className="w-8 h-8 rounded-full bg-black/10 flex items-center justify-center transition-all group-hover:bg-black/20 group-hover:rotate-45">
@@ -274,7 +277,7 @@ export default function Home() {
                   <motion.button
                     whileHover={{ scale: 1.04 }}
                     whileTap={{ scale: 0.96 }}
-                    className="px-8 py-5 border border-white/10 text-[hsl(var(--foreground))] font-display tracking-[0.15em] uppercase text-sm rounded-full hover:bg-white/5 transition-all"
+                    className="w-full sm:w-auto px-7 sm:px-8 py-4 sm:py-5 border border-white/10 text-[hsl(var(--foreground))] font-display tracking-[0.15em] uppercase text-xs sm:text-sm rounded-full hover:bg-white/5 transition-all"
                   >
                     Apply as Athlete
                   </motion.button>
@@ -284,7 +287,7 @@ export default function Home() {
           </div>
 
           {/* Asymmetric Image Column — REAL PCube photos */}
-          <div className="lg:col-span-5 relative">
+          <div className="lg:col-span-5 relative mt-2 lg:mt-0">
             <motion.div
               initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
               animate={{ opacity: 1, scale: 1, rotate: -4 }}
@@ -293,7 +296,7 @@ export default function Home() {
                 duration: 1.2,
                 ease: [0.32, 0.72, 0, 1],
               }}
-              className="relative aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl z-20 border border-white/10"
+              className="relative aspect-[4/5] rounded-[2rem] sm:rounded-[3rem] overflow-hidden shadow-2xl z-20 border border-white/10"
             >
               <img
                 src="https://lh3.googleusercontent.com/pw/AP1GczMrKHHu7zvAclrA0-REjQVaDunGh1dDwGiaJhKulmSMGTovigEEclrPPLdjORuHdXZUzmA18Er80PS-9t91Wx63tfhFFTh_wsz-q5DIXlct4k2Ks65jVa6OLnhmaL1PrTGEufeve0EozZ1Lvr6ZVGzI=w1376-h917-s-no-gm?authuser=0"
@@ -408,7 +411,7 @@ export default function Home() {
       {/* ========= HOW WE HELP ========= */}
       <section
         aria-label="How we help"
-        className="py-32 lg:py-48 bg-[hsl(var(--muted))]/10"
+        className="py-24 lg:py-48 bg-[hsl(var(--muted))]/10"
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
@@ -416,7 +419,7 @@ export default function Home() {
               <span className="font-display text-xs tracking-[0.3em] text-[hsl(var(--primary))] uppercase border-b border-[hsl(var(--primary))]/30 pb-1">
                 Our Methodology
               </span>
-              <h2 className="mt-8 font-display text-5xl lg:text-7xl tracking-tighter text-[hsl(var(--foreground))] leading-[0.9]">
+              <h2 className="mt-8 font-display text-4xl sm:text-5xl lg:text-7xl tracking-tighter text-[hsl(var(--foreground))] leading-[0.9]">
                 FROM RAW TALENT TO <br />
                 <span className="font-editorial italic font-normal text-[hsl(var(--primary))]">
                   Real Opportunity
@@ -429,8 +432,8 @@ export default function Home() {
                 provides the training, gear, and exposure these young athletes
                 need. Our proven pipeline takes players from local fields to
                 district, state and even national levels. By focusing first on
-                hockey — India's game of passion — we're already seeing champions
-                in the making.
+                hockey — India's game of passion — we're already seeing
+                champions in the making.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link href="/get-involved">
@@ -552,9 +555,9 @@ export default function Home() {
       {/* ========= FEATURED STORY — EDITORIAL SPLIT ========= */}
       <section
         aria-label="Featured athlete story"
-        className="py-32 lg:py-48 border-y border-white/5 relative overflow-hidden"
+        className="py-24 lg:py-48 border-y border-white/5 relative overflow-hidden"
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -592,7 +595,7 @@ export default function Home() {
             <span className="font-display text-xs tracking-[0.3em] text-[hsl(var(--primary))] uppercase border-b border-[hsl(var(--primary))]/30 pb-1">
               Champions in the Making
             </span>
-            <h2 className="mt-8 font-display text-5xl lg:text-8xl tracking-tighter text-[hsl(var(--foreground))] leading-[0.85] mb-8">
+            <h2 className="mt-8 font-display text-4xl sm:text-5xl lg:text-8xl tracking-tighter text-[hsl(var(--foreground))] leading-[0.85] mb-8">
               MEET <br />
               <span className="font-editorial italic font-normal text-[hsl(var(--primary))]">
                 Aanya
@@ -622,14 +625,14 @@ export default function Home() {
       {/* ========= WHY PCUBE ========= */}
       <section
         aria-label="Why PCube"
-        className="py-32 lg:py-48 bg-[hsl(var(--card))]/30 relative"
+        className="py-24 lg:py-48 bg-[hsl(var(--card))]/30 relative"
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="mb-20">
             <span className="font-display text-xs tracking-[0.3em] text-[hsl(var(--primary))] uppercase border-b border-[hsl(var(--primary))]/30 pb-1">
               The Support System
             </span>
-            <h2 className="mt-8 font-display text-5xl lg:text-7xl tracking-tighter text-[hsl(var(--foreground))] max-w-4xl leading-[0.9]">
+            <h2 className="mt-8 font-display text-4xl sm:text-5xl lg:text-7xl tracking-tighter text-[hsl(var(--foreground))] max-w-4xl leading-[0.9]">
               EVERYTHING A CHAMPION <br />
               <span className="font-editorial italic font-normal text-[hsl(var(--primary))]">
                 Needs to Succeed
@@ -676,7 +679,7 @@ export default function Home() {
               <span className="font-display text-xs tracking-[0.3em] text-[hsl(var(--primary))] uppercase border-b border-[hsl(var(--primary))]/30 pb-1">
                 Multi-Sport Ecosystem
               </span>
-              <h2 className="font-display text-6xl lg:text-8xl tracking-tighter text-[hsl(var(--foreground))] mt-8 leading-[0.85]">
+              <h2 className="font-display text-4xl sm:text-6xl lg:text-8xl tracking-tighter text-[hsl(var(--foreground))] mt-8 leading-[0.85]">
                 WHAT WE <br />
                 <span className="font-editorial italic font-normal text-[hsl(var(--primary))]">
                   Build Together
@@ -696,16 +699,11 @@ export default function Home() {
 
         <div className="overflow-x-auto scrollbar-hide py-10">
           <div
-            className="flex gap-8 px-6 lg:px-10"
+            className="flex gap-4 sm:gap-8 px-4 sm:px-6 lg:px-10"
             style={{ width: "max-content" }}
           >
             {programs.map((prog) => (
-              <ProgramCard
-                key={prog.sport}
-                {...prog}
-                icon={null
-                }
-              />
+              <ProgramCard key={prog.sport} {...prog} icon={null} />
             ))}
           </div>
         </div>
@@ -714,13 +712,13 @@ export default function Home() {
       {/* ========= INTERACTIVE GALLERY ========= */}
       <section
         aria-label="Interactive gallery"
-        className="py-32 lg:py-48 bg-[hsl(var(--card))]/30 relative"
+        className="py-24 lg:py-48 bg-[hsl(var(--card))]/30 relative"
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10 mb-16">
           <span className="font-display text-xs tracking-[0.3em] text-[hsl(var(--primary))] uppercase border-b border-[hsl(var(--primary))]/30 pb-1">
             Inside the Journey
           </span>
-          <h2 className="mt-8 font-display text-6xl lg:text-8xl tracking-tighter text-[hsl(var(--foreground))] leading-[0.85]">
+          <h2 className="mt-8 font-display text-4xl sm:text-6xl lg:text-8xl tracking-tighter text-[hsl(var(--foreground))] leading-[0.85]">
             THE{" "}
             <span className="font-editorial italic font-normal text-[hsl(var(--primary))] text-[1.1em]">
               Visual
@@ -729,7 +727,7 @@ export default function Home() {
             MOMENTS
           </h2>
         </div>
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 bg-black/20 p-4 rounded-[3rem] border border-white/5">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 bg-black/20 p-3 sm:p-4 rounded-[1.75rem] sm:rounded-[3rem] border border-white/5">
           <BentoGridGalleryDemo />
         </div>
       </section>
@@ -737,14 +735,14 @@ export default function Home() {
       {/* ========= IMPACT STORIES ========= */}
       <section
         aria-label="Impact Stories"
-        className="py-32 lg:py-48 bg-[hsl(var(--background))] relative"
+        className="py-24 lg:py-48 bg-[hsl(var(--background))] relative"
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="mb-20">
             <span className="font-display text-xs tracking-[0.3em] text-[hsl(var(--primary))] uppercase border-b border-[hsl(var(--primary))]/30 pb-1">
               Proof of Impact
             </span>
-            <h2 className="mt-8 font-display text-6xl lg:text-8xl tracking-tighter text-[hsl(var(--foreground))] leading-[0.85]">
+            <h2 className="mt-8 font-display text-4xl sm:text-6xl lg:text-8xl tracking-tighter text-[hsl(var(--foreground))] leading-[0.85]">
               THE <br />
               <span className="font-editorial italic font-normal text-[hsl(var(--primary))]">
                 Prospects
@@ -795,7 +793,7 @@ export default function Home() {
             <motion.button
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
-              className="group flex-shrink-0 bg-[hsl(var(--primary-foreground))] text-[hsl(var(--primary))] font-display tracking-[0.2em] text-sm px-12 py-6 rounded-full shadow-2xl overflow-hidden flex items-center gap-3 uppercase"
+              className="group w-full sm:w-auto justify-center flex-shrink-0 bg-[hsl(var(--primary-foreground))] text-[hsl(var(--primary))] font-display tracking-[0.2em] text-xs sm:text-sm px-8 sm:px-12 py-4 sm:py-6 rounded-full shadow-2xl overflow-hidden flex items-center gap-3 uppercase"
             >
               <span>Donate Now</span>
               <div className="w-8 h-8 rounded-full bg-[hsl(var(--primary))]/10 flex items-center justify-center transition-all group-hover:bg-[hsl(var(--primary))]/20 group-hover:rotate-45">

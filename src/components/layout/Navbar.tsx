@@ -54,30 +54,37 @@ export default function Navbar() {
     <>
       {/* FLUID ISLAND NAV */}
       <nav
-        className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none"
+        className="fixed top-0 left-0 right-0 z-50 flex justify-center px-3 sm:px-4 pointer-events-none"
         data-testid="navbar"
-        style={{ paddingTop: scrolled ? "12px" : "20px", transition: "padding-top 0.5s cubic-bezier(0.32, 0.72, 0, 1)" }}
+        style={{
+          paddingTop: scrolled ? "12px" : "20px",
+          transition: "padding-top 0.5s cubic-bezier(0.32, 0.72, 0, 1)",
+        }}
       >
         <motion.div
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, ease: [0.32, 0.72, 0, 1], delay: 0.2 }}
-          className="pointer-events-auto flex items-center gap-1 rounded-full px-2 py-2 shadow-2xl"
+          className="pointer-events-auto flex w-full max-w-[calc(100vw-1rem)] lg:w-auto items-center justify-between lg:justify-start gap-2 lg:gap-1 rounded-full px-2 sm:px-2.5 py-1.5 sm:py-2 shadow-2xl"
           style={{
             backdropFilter: "blur(24px) saturate(1.4)",
             WebkitBackdropFilter: "blur(24px) saturate(1.4)",
-            backgroundColor: scrolled ? "rgba(8,8,12,0.88)" : "rgba(8,8,12,0.45)",
-            border: scrolled ? "1px solid rgba(255,255,255,0.1)" : "1px solid rgba(255,255,255,0.06)",
+            backgroundColor: scrolled
+              ? "rgba(8,8,12,0.88)"
+              : "rgba(8,8,12,0.45)",
+            border: scrolled
+              ? "1px solid rgba(255,255,255,0.1)"
+              : "1px solid rgba(255,255,255,0.06)",
             transition: "background-color 0.5s ease, border-color 0.5s ease",
           }}
         >
           {/* LOGO */}
           <Link href="/" data-testid="link-logo">
-            <div className="flex items-center gap-2.5 px-5 py-2 cursor-pointer group">
+            <div className="flex items-center gap-2 px-3 sm:px-5 py-2 cursor-pointer group">
               <img
                 src="/logo.jpeg"
                 alt="PCube Foundation logo"
-                className="w-8 h-8 rounded-sm object-cover transition-transform duration-300 group-hover:scale-110"
+                className="w-7 h-7 sm:w-8 sm:h-8 rounded-sm object-cover transition-transform duration-300 group-hover:scale-110"
                 loading="eager"
                 decoding="async"
               />
@@ -89,37 +96,43 @@ export default function Navbar() {
 
           {/* DESKTOP NAV LINKS */}
           <div className="hidden lg:flex items-center gap-0.5">
-            {navLinks.filter(l => l.href !== "/").map((link) => {
-              const isActive = location === link.href;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  data-testid={`link-nav-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
-                >
-                  <span
-                    className={`relative px-4 py-2 rounded-full text-[11px] font-display tracking-[0.15em] uppercase cursor-pointer transition-all duration-300 ${
-                      isActive
-                        ? "text-[hsl(var(--primary))] bg-[hsl(var(--primary))]/8"
-                        : "text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] hover:bg-white/[0.04]"
-                    }`}
+            {navLinks
+              .filter((l) => l.href !== "/")
+              .map((link) => {
+                const isActive = location === link.href;
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    data-testid={`link-nav-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
                   >
-                    {link.label}
-                  </span>
-                </Link>
-              );
-            })}
+                    <span
+                      className={`relative px-4 py-2 rounded-full text-[11px] font-display tracking-[0.15em] uppercase cursor-pointer transition-all duration-300 ${
+                        isActive
+                          ? "text-[hsl(var(--primary))] bg-[hsl(var(--primary))]/8"
+                          : "text-[hsl(var(--muted-foreground))] hover:text-[hsl(var(--foreground))] hover:bg-white/[0.04]"
+                      }`}
+                    >
+                      {link.label}
+                    </span>
+                  </Link>
+                );
+              })}
           </div>
 
           {/* MOBILE TOGGLE */}
           <motion.button
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden w-10 h-10 rounded-full bg-white/[0.05] border border-white/[0.08] flex items-center justify-center text-[hsl(var(--foreground))] hover:bg-white/[0.1] transition-colors"
+            className="lg:hidden ml-auto w-12 h-12 sm:w-11 sm:h-11 rounded-full bg-white/5 border border-white/8 flex items-center justify-center text-foreground hover:bg-white/10 transition-colors"
             aria-label="Toggle menu"
             data-testid="button-menu-toggle"
           >
-            {isMenuOpen ? <X size={18} weight="bold" /> : <List size={18} weight="bold" />}
+            {isMenuOpen ? (
+              <X size={18} weight="bold" />
+            ) : (
+              <List size={18} weight="bold" />
+            )}
           </motion.button>
 
           {/* DESKTOP CONTACT + DONATE */}
@@ -152,7 +165,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
-            className="fixed inset-0 z-40 bg-[hsl(var(--background))]/95 backdrop-blur-2xl lg:hidden flex flex-col items-center justify-center"
+            className="fixed inset-0 z-40 bg-[hsl(var(--background))]/95 backdrop-blur-2xl lg:hidden flex flex-col items-center justify-center overflow-y-auto overscroll-contain px-6 py-24"
             data-testid="mobile-menu"
           >
             {/* Close button at top */}
@@ -161,19 +174,23 @@ export default function Navbar() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.1 }}
               onClick={() => setIsMenuOpen(false)}
-              className="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/[0.05] border border-white/[0.1] flex items-center justify-center text-[hsl(var(--foreground))]"
+              className="absolute top-[max(1rem,env(safe-area-inset-top))] right-4 w-11 h-11 rounded-full bg-white/[0.05] border border-white/[0.1] flex items-center justify-center text-[hsl(var(--foreground))]"
               aria-label="Close menu"
             >
               <X size={22} weight="bold" />
             </motion.button>
 
-            <nav className="flex flex-col items-center gap-6">
+            <nav className="flex w-full max-w-sm flex-col items-center gap-3">
               {allLinks.map((link, i) => (
                 <motion.div
                   key={link.href}
                   initial={{ opacity: 0, y: 24 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.06, duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
+                  transition={{
+                    delay: i * 0.06,
+                    duration: 0.5,
+                    ease: [0.32, 0.72, 0, 1],
+                  }}
                 >
                   <Link
                     href={link.href}
@@ -181,7 +198,7 @@ export default function Navbar() {
                   >
                     <span
                       onClick={() => setIsMenuOpen(false)}
-                      className={`font-editorial text-4xl italic cursor-pointer transition-colors duration-200 ${
+                      className={`block w-full text-center py-3 font-editorial text-[clamp(1.75rem,8vw,2.5rem)] leading-tight italic cursor-pointer transition-colors duration-200 ${
                         location === link.href
                           ? "text-[hsl(var(--primary))]"
                           : "text-[hsl(var(--foreground))] hover:text-[hsl(var(--primary))]"
@@ -198,13 +215,16 @@ export default function Navbar() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: allLinks.length * 0.06 + 0.1, duration: 0.5 }}
-              className="mt-10"
+              transition={{
+                delay: allLinks.length * 0.06 + 0.1,
+                duration: 0.5,
+              }}
+              className="mt-8 w-full max-w-sm"
             >
               <Link href="/donate" data-testid="link-mobile-donate-cta">
                 <span
                   onClick={() => setIsMenuOpen(false)}
-                  className="inline-block bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] font-display tracking-[0.2em] text-sm px-10 py-4 rounded-full cursor-pointer shadow-xl shadow-[hsl(var(--primary))]/20"
+                  className="block w-full text-center bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] font-display tracking-[0.2em] text-xs sm:text-sm px-8 py-3.5 rounded-full cursor-pointer shadow-xl shadow-[hsl(var(--primary))]/20"
                 >
                   DONATE NOW
                 </span>

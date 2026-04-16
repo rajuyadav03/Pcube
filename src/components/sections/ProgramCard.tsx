@@ -10,12 +10,19 @@ interface ProgramCardProps {
   imageUrl?: string;
 }
 
-export default function ProgramCard({ sport, description, status, icon, accentColor = "hsl(var(--primary))", imageUrl }: ProgramCardProps) {
+export default function ProgramCard({
+  sport,
+  description,
+  status,
+  icon,
+  accentColor = "hsl(var(--primary))",
+  imageUrl,
+}: ProgramCardProps) {
   return (
     <motion.div
       whileHover={{ y: -8, scale: 1.01 }}
       transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
-      className="group relative flex-shrink-0 w-72 lg:w-80 cursor-pointer"
+      className="group relative flex-shrink-0 w-[82vw] max-w-[20rem] sm:w-72 lg:w-80 cursor-pointer"
       data-testid={`card-program-${sport.toLowerCase().replace(/\s+/g, "-")}`}
     >
       {/* Outer Shell (Double-Bezel) */}
@@ -36,34 +43,36 @@ export default function ProgramCard({ sport, description, status, icon, accentCo
               {icon}
             </div> */}
             <span
-              className={`absolute bottom-4 right-4 text-[10px] font-display tracking-[0.2em] px-3 py-1.5 rounded-full border ${status === "active"
+              className={`absolute bottom-4 right-4 text-[10px] font-display tracking-[0.2em] px-3 py-1.5 rounded-full border ${
+                status === "active"
                   ? "border-[hsl(var(--primary))]/40 text-[hsl(var(--primary))] bg-[hsl(var(--primary))]/5"
                   : "border-white/20 text-white/50 bg-white/5"
-                } backdrop-blur-sm`}
+              } backdrop-blur-sm`}
             >
               {status === "active" ? "● ACTIVE" : "EXPANDING"}
             </span>
           </div>
         )}
 
-        <div className="p-8 flex-1 flex flex-col">
+        <div className="p-6 sm:p-8 flex-1 flex flex-col">
           {!imageUrl && (
             <div className="flex items-center justify-between mb-6">
               <div className="w-12 h-12 rounded-2xl bg-[hsl(var(--primary))]/10 border border-[hsl(var(--primary))]/20 flex items-center justify-center text-3xl">
                 {icon}
               </div>
               <span
-                className={`text-[10px] font-display tracking-[0.2em] px-3 py-1.5 rounded-full border ${status === "active"
+                className={`text-[10px] font-display tracking-[0.2em] px-3 py-1.5 rounded-full border ${
+                  status === "active"
                     ? "border-[hsl(var(--primary))]/40 text-[hsl(var(--primary))]"
                     : "border-white/20 text-white/50"
-                  }`}
+                }`}
               >
                 {status === "active" ? "● ACTIVE" : "EXPANDING"}
               </span>
             </div>
           )}
 
-          <h3 className="font-display text-2xl tracking-tight text-[hsl(var(--foreground))] mb-3 group-hover:text-[hsl(var(--primary))] transition-colors duration-300">
+          <h3 className="font-display text-xl sm:text-2xl tracking-tight text-[hsl(var(--foreground))] mb-3 group-hover:text-[hsl(var(--primary))] transition-colors duration-300">
             {sport.toUpperCase()}
           </h3>
           <p className="text-[hsl(var(--muted-foreground))] text-sm leading-relaxed mb-6 flex-1">

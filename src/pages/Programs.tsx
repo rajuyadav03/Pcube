@@ -103,12 +103,12 @@ function ExpandablePillar({
   return (
     <div className="border border-[hsl(var(--border))]">
       <button
-        className="w-full flex items-center justify-between p-6 text-left hover:bg-[hsl(var(--muted))]/20 transition-colors"
+        className="w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-[hsl(var(--muted))]/20 transition-colors"
         onClick={() => setOpen(!open)}
         aria-expanded={open}
         data-testid={`button-pillar-${title.toLowerCase()}`}
       >
-        <span className="font-display text-xl tracking-wider text-[hsl(var(--foreground))]">
+        <span className="font-display text-lg sm:text-xl tracking-wider text-[hsl(var(--foreground))]">
           {title.toUpperCase()}
         </span>
         <motion.div
@@ -127,7 +127,7 @@ function ExpandablePillar({
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
             className="overflow-hidden"
           >
-            <div className="px-6 pb-6 text-[hsl(var(--muted-foreground))] text-sm leading-relaxed border-t border-[hsl(var(--border))] pt-4">
+            <div className="px-4 sm:px-6 pb-5 sm:pb-6 text-[hsl(var(--muted-foreground))] text-sm leading-relaxed border-t border-[hsl(var(--border))] pt-4">
               {content}
             </div>
           </motion.div>
@@ -166,7 +166,10 @@ export default function Programs() {
               Multi-Sport Ecosystem
             </span>
             <h1 className="font-display text-[clamp(3rem,9vw,7rem)] tracking-tighter text-[hsl(var(--foreground))] mt-6 leading-[0.85]">
-              OUR <span className="font-editorial italic font-normal text-[hsl(var(--primary))]">Programs</span>
+              OUR{" "}
+              <span className="font-editorial italic font-normal text-[hsl(var(--primary))]">
+                Programs
+              </span>
             </h1>
             <p className="mt-8 text-[hsl(var(--muted-foreground))] text-lg md:text-xl max-w-2xl leading-relaxed">
               PCube Foundation is not a hockey organization. It is a sports
@@ -189,7 +192,7 @@ export default function Programs() {
                   ACTIVE PROGRAM
                 </span>
               </div>
-              <h2 className="font-display text-5xl lg:text-6xl tracking-tight text-[hsl(var(--foreground))] mb-4">
+              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[hsl(var(--foreground))] mb-4">
                 FIELD HOCKEY
               </h2>
               <p className="text-[hsl(var(--muted-foreground))] leading-relaxed mb-8">
@@ -198,21 +201,21 @@ export default function Programs() {
                 competition. This is what structured sports development looks
                 like.
               </p>
-              <div className="flex items-center gap-4 text-sm text-[hsl(var(--muted-foreground))]">
+              <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-sm text-[hsl(var(--muted-foreground))]">
                 <div className="text-center">
                   <p className="font-display text-3xl text-[hsl(var(--primary))]">
                     2
                   </p>
                   <p className="text-xs tracking-wide">National Selections</p>
                 </div>
-                <div className="w-px h-10 bg-[hsl(var(--border))]" />
+                <div className="hidden sm:block w-px h-10 bg-[hsl(var(--border))]" />
                 <div className="text-center">
                   <p className="font-display text-3xl text-[hsl(var(--primary))]">
                     47
                   </p>
                   <p className="text-xs tracking-wide">Active Students</p>
                 </div>
-                <div className="w-px h-10 bg-[hsl(var(--border))]" />
+                <div className="hidden sm:block w-px h-10 bg-[hsl(var(--border))]" />
                 <div className="text-center">
                   <p className="font-display text-3xl text-[hsl(var(--primary))]">
                     3
@@ -243,8 +246,11 @@ export default function Programs() {
             <span className="font-display text-xs tracking-[0.3em] text-[hsl(var(--primary))] uppercase border-b border-[hsl(var(--primary))]/30 pb-1">
               What's Coming
             </span>
-            <h2 className="font-display text-5xl lg:text-7xl tracking-tighter text-[hsl(var(--foreground))] mt-6 leading-[0.9]">
-              THE <span className="font-editorial italic font-normal text-[hsl(var(--primary))]">Roadmap</span>
+            <h2 className="font-display text-4xl sm:text-5xl lg:text-7xl tracking-tighter text-[hsl(var(--foreground))] mt-6 leading-[0.9]">
+              THE{" "}
+              <span className="font-editorial italic font-normal text-[hsl(var(--primary))]">
+                Roadmap
+              </span>
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -285,8 +291,11 @@ export default function Programs() {
             <span className="font-display text-xs tracking-[0.3em] text-[hsl(var(--primary))] uppercase border-b border-[hsl(var(--primary))]/30 pb-1">
               The Process
             </span>
-            <h2 className="font-display text-5xl lg:text-7xl tracking-tighter text-[hsl(var(--foreground))] mt-6 leading-[0.9]">
-              HOW IT <span className="font-editorial italic font-normal text-[hsl(var(--primary))]">Works</span>
+            <h2 className="font-display text-4xl sm:text-5xl lg:text-7xl tracking-tighter text-[hsl(var(--foreground))] mt-6 leading-[0.9]">
+              HOW IT{" "}
+              <span className="font-editorial italic font-normal text-[hsl(var(--primary))]">
+                Works
+              </span>
             </h2>
           </div>
           <div className="flex flex-col lg:flex-row gap-0">
@@ -298,10 +307,11 @@ export default function Programs() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.12, duration: 0.6 }}
                 onClick={() => setActiveStep(i)}
-                className={`flex-1 p-8 border-r border-b lg:border-b-0 border-[hsl(var(--border))] cursor-pointer transition-all duration-300 ${activeStep === i
+                className={`flex-1 p-6 sm:p-8 border-b lg:border-b-0 lg:border-r border-[hsl(var(--border))] cursor-pointer transition-all duration-300 ${
+                  activeStep === i
                     ? "bg-[hsl(var(--primary))]/5 border-r-[hsl(var(--primary))]"
                     : "hover:bg-[hsl(var(--card))]"
-                  }`}
+                }`}
                 data-testid={`step-${step.label.toLowerCase()}`}
               >
                 <div

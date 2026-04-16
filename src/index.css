@@ -227,6 +227,7 @@
     selection-color: hsl(var(--primary));
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
   }
 }
 

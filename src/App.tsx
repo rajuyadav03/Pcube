@@ -14,8 +14,8 @@ import Sponsors from "@/pages/Sponsors";
 import GetInvolved from "@/pages/GetInvolved";
 import Media from "@/pages/Media";
 import Contact from "@/pages/Contact";
-import NotFound from "@/pages/not-found"; import ScrollToTop from "./components/ScrollToTop";
-
+import NotFound from "@/pages/not-found";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -41,9 +41,21 @@ function AppRoutes() {
 function AppInner() {
   useEffect(() => {
     const initLenis = async () => {
+      const prefersReduced = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
+      if (prefersReduced || isCoarsePointer) {
+        return;
+      }
+
       try {
         const Lenis = (await import("lenis")).default;
-        const lenis = new Lenis({ lerp: 0.1, duration: 1.2, smoothWheel: true });
+        const lenis = new Lenis({
+          lerp: 0.1,
+          duration: 1.2,
+          smoothWheel: true,
+        });
         const raf = (time: number) => {
           lenis.raf(time);
           requestAnimationFrame(raf);

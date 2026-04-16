@@ -51,12 +51,16 @@ export default function Donate() {
             <span className="font-display text-xs tracking-[0.2em] text-[hsl(var(--primary))] uppercase">
               Join the Mission
             </span>
-            <h1 className="font-display text-[clamp(4rem,10vw,8rem)] tracking-tighter text-[hsl(var(--foreground))] mt-4 leading-[0.85] uppercase">
+            <h1 className="font-display text-[clamp(2.6rem,12vw,8rem)] tracking-tighter text-[hsl(var(--foreground))] mt-4 leading-[0.85] uppercase">
               YOU'RE NOT
               <br />
-              <span className="text-[hsl(var(--muted-foreground))]">DONATING.</span>
+              <span className="text-[hsl(var(--muted-foreground))]">
+                DONATING.
+              </span>
               <br />
-              <span className="text-[hsl(var(--primary))]">YOU'RE INVESTING.</span>
+              <span className="text-[hsl(var(--primary))]">
+                YOU'RE INVESTING.
+              </span>
             </h1>
             <p className="mt-8 text-[hsl(var(--muted-foreground))] text-lg max-w-2xl leading-relaxed font-editorial italic lg:text-2xl">
               Every rupee you put into PCube Foundation is a direct investment
@@ -76,7 +80,7 @@ export default function Donate() {
               <span className="font-display text-xs tracking-[0.2em] text-[hsl(var(--primary))] uppercase">
                 Choose Your Investment
               </span>
-              <h2 className="font-display text-5xl lg:text-7xl tracking-tighter text-[hsl(var(--foreground))] mt-2 uppercase leading-[0.85]">
+              <h2 className="font-display text-4xl sm:text-5xl lg:text-7xl tracking-tighter text-[hsl(var(--foreground))] mt-2 uppercase leading-[0.85]">
                 What Your Rupees Do
               </h2>
             </div>
@@ -136,7 +140,7 @@ export default function Donate() {
                 setSelected(null);
               }}
               placeholder="Enter any amount"
-              className="w-full bg-[hsl(var(--card))] border border-[hsl(var(--border))] text-[hsl(var(--foreground))] px-6 py-4 font-display text-2xl focus:outline-none focus:border-[hsl(var(--primary))] transition-colors placeholder:text-[hsl(var(--muted-foreground))]/40"
+              className="w-full bg-[hsl(var(--card))] border border-[hsl(var(--border))] text-[hsl(var(--foreground))] px-6 py-4 font-display text-xl sm:text-2xl focus:outline-none focus:border-[hsl(var(--primary))] transition-colors placeholder:text-[hsl(var(--muted-foreground))]/40"
               data-testid="input-custom-amount"
             />
           </div>
@@ -145,7 +149,7 @@ export default function Donate() {
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="flex-1 bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] font-display tracking-widest text-lg py-5 hover:brightness-110 transition-all duration-200"
+              className="flex-1 bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] font-display tracking-widest text-base sm:text-lg py-4 sm:py-5 hover:brightness-110 transition-all duration-200"
               data-testid="button-proceed-donate"
             >
               PROCEED TO DONATE →
@@ -184,7 +188,7 @@ export default function Donate() {
               <span className="font-display text-xs tracking-[0.2em] text-[hsl(var(--primary))] uppercase">
                 Full Transparency
               </span>
-              <h2 className="font-display text-5xl lg:text-7xl tracking-tighter text-[hsl(var(--foreground))] mt-2 uppercase leading-[0.85]">
+              <h2 className="font-display text-4xl sm:text-5xl lg:text-7xl tracking-tighter text-[hsl(var(--foreground))] mt-2 uppercase leading-[0.85]">
                 Where Every Rupee Goes
               </h2>
             </div>
@@ -197,10 +201,10 @@ export default function Donate() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.6 }}
-                className="flex items-center gap-6"
+                className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6"
                 data-testid={`breakdown-${item.label.toLowerCase().replace(/\s+/g, "-")}`}
               >
-                <div className="w-36 text-right">
+                <div className="w-full sm:w-32 sm:text-right">
                   <span className="font-display text-sm tracking-wider text-[hsl(var(--foreground))]">
                     {item.percentage}%
                   </span>
@@ -219,7 +223,7 @@ export default function Donate() {
                     style={{ backgroundColor: item.color }}
                   />
                 </div>
-                <div className="w-48">
+                <div className="w-full sm:w-44">
                   <span className="text-[hsl(var(--muted-foreground))] text-sm">
                     {item.label}
                   </span>
@@ -246,13 +250,13 @@ export default function Donate() {
               <span className="font-display text-xs tracking-[0.2em] text-[hsl(var(--primary))] uppercase">
                 Tax Benefits
               </span>
-              <h2 className="font-display text-5xl lg:text-7xl tracking-tighter text-[hsl(var(--foreground))] mt-2 uppercase leading-[0.85]">
+              <h2 className="font-display text-4xl sm:text-5xl lg:text-7xl tracking-tighter text-[hsl(var(--foreground))] mt-2 uppercase leading-[0.85]">
                 Your Deductions
               </h2>
             </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div className="border border-[hsl(var(--primary))] p-8 bg-[hsl(var(--primary))]/5">
+            <div className="border border-[hsl(var(--primary))] p-6 sm:p-8 bg-[hsl(var(--primary))]/5">
               <span className="font-display text-4xl text-[hsl(var(--primary))] block mb-4">
                 12A
               </span>
@@ -274,7 +278,7 @@ export default function Donate() {
                 <Download size={14} /> Download Certificate
               </button>
             </div>
-            <div className="border border-[hsl(var(--border))] p-8">
+            <div className="border border-[hsl(var(--border))] p-6 sm:p-8">
               <span className="font-display text-4xl text-[hsl(var(--foreground))] block mb-4">
                 80G
               </span>
