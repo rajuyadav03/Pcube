@@ -213,12 +213,12 @@ export default function Media() {
           <motion.div
             initial={prefersReduced ? {} : { opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: "circOut" }}
           >
-            <span className="font-display text-sm tracking-widest text-[hsl(var(--primary))]">
-              DOCUMENTING THE JOURNEY
+            <span className="font-display text-xs tracking-[0.2em] text-[hsl(var(--primary))] uppercase bg-[hsl(var(--primary))]/10 px-3 py-1 rounded-full border border-[hsl(var(--primary))]/20">
+              Documenting the Journey
             </span>
-            <h1 className="font-display text-[clamp(3rem,9vw,7rem)] tracking-tight text-[hsl(var(--foreground))] mt-2 leading-none">
+            <h1 className="font-display text-[clamp(4rem,10vw,8rem)] tracking-tighter text-[hsl(var(--foreground))] mt-6 leading-[0.85] uppercase">
               MEDIA
             </h1>
           </motion.div>
@@ -228,13 +228,15 @@ export default function Media() {
       {/* GALLERY */}
       <section aria-label="Photo gallery" className="py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="mb-8">
-            <span className="font-display text-sm tracking-widest text-[hsl(var(--primary))]">
-              PHOTO GALLERY
-            </span>
-            <h2 className="font-display text-4xl tracking-tight text-[hsl(var(--foreground))] mt-2">
-              IN PICTURES
-            </h2>
+          <div className="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            <div className="max-w-2xl">
+              <span className="font-display text-xs tracking-[0.2em] text-[hsl(var(--primary))] uppercase">
+                Photo Gallery
+              </span>
+              <h2 className="font-display text-5xl lg:text-7xl tracking-tighter text-[hsl(var(--foreground))] mt-2 uppercase leading-[0.85]">
+                In Pictures
+              </h2>
+            </div>
           </div>
 
           <div
@@ -248,14 +250,14 @@ export default function Media() {
                 onClick={() => setActiveCategory(cat)}
                 role="tab"
                 aria-selected={activeCategory === cat}
-                className={`font-display text-sm tracking-widest px-4 py-2 border transition-all duration-200 ${
+                className={`font-display text-xs tracking-[0.1em] px-4 py-2 border transition-all duration-200 uppercase ${
                   activeCategory === cat
                     ? "border-[hsl(var(--primary))] text-[hsl(var(--primary))] bg-[hsl(var(--primary))]/5"
                     : "border-[hsl(var(--border))] text-[hsl(var(--muted-foreground))] hover:border-[hsl(var(--primary))]/40"
                 }`}
                 data-testid={`tab-gallery-${cat.toLowerCase()}`}
               >
-                {cat.toUpperCase()}
+                {cat}
               </button>
             ))}
           </div>
@@ -332,13 +334,15 @@ export default function Media() {
         className="py-20 lg:py-28 bg-[hsl(var(--card))]"
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="mb-12">
-            <span className="font-display text-sm tracking-widest text-[hsl(var(--primary))]">
-              YOUTUBE CHANNEL
-            </span>
-            <h2 className="font-display text-4xl tracking-tight text-[hsl(var(--foreground))] mt-2">
-              WATCH THE JOURNEY
-            </h2>
+          <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div className="max-w-2xl">
+              <span className="font-display text-xs tracking-[0.2em] text-[hsl(var(--primary))] uppercase">
+                YouTube Channel
+              </span>
+              <h2 className="font-display text-5xl lg:text-7xl tracking-tighter text-[hsl(var(--foreground))] mt-2 uppercase leading-[0.85]">
+                Watch the Journey
+              </h2>
+            </div>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {videos.map((video) => (

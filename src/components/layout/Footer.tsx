@@ -62,8 +62,8 @@ export default function Footer() {
         <div className="mb-12 border border-[hsl(var(--border))] bg-[hsl(var(--background))]/5 p-6 lg:p-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-1">
-              <h3 className="font-display text-sm tracking-widest text-[hsl(var(--foreground))] mb-4">
-                QUICK IMPACT SNAPSHOT
+              <h3 className="font-display text-xs tracking-[0.2em] text-[hsl(var(--foreground))] mb-4 uppercase">
+                Quick Impact Snapshot
               </h3>
               <div className="grid grid-cols-2 gap-3">
                 {footerStats.map((stat) => (
@@ -83,8 +83,8 @@ export default function Footer() {
             </div>
 
             <div className="lg:col-span-1">
-              <h3 className="font-display text-sm tracking-widest text-[hsl(var(--foreground))] mb-4">
-                PARTNER NETWORK
+              <h3 className="font-display text-xs tracking-[0.2em] text-[hsl(var(--foreground))] mb-4 uppercase">
+                Partner Network
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {partnerNames.map((name) => (
@@ -99,8 +99,8 @@ export default function Footer() {
             </div>
 
             <div className="lg:col-span-1">
-              <h3 className="font-display text-sm tracking-widest text-[hsl(var(--foreground))] mb-2">
-                NEWSLETTER
+              <h3 className="font-display text-xs tracking-[0.2em] text-[hsl(var(--foreground))] mb-2 uppercase">
+                Newsletter
               </h3>
               <p className="text-sm text-[hsl(var(--muted-foreground))] mb-4">
                 Get stories, player milestones, and upcoming events in your
@@ -170,8 +170,8 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="font-display text-sm tracking-widest text-[hsl(var(--foreground))] mb-4">
-              QUICK LINKS
+            <h3 className="font-display text-xs tracking-[0.2em] text-[hsl(var(--foreground))] mb-4 uppercase">
+              Quick Links
             </h3>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
@@ -188,8 +188,8 @@ export default function Footer() {
 
           <div className="space-y-6">
             <div>
-              <h3 className="font-display text-sm tracking-widest text-[hsl(var(--foreground))] mb-4">
-                CONNECT
+              <h3 className="font-display text-xs tracking-[0.2em] text-[hsl(var(--foreground))] mb-4 uppercase">
+                Connect
               </h3>
               <div className="flex items-center gap-4">
                 {socials.map(({ href, icon: Icon, label }) => (
@@ -208,8 +208,8 @@ export default function Footer() {
               </div>
             </div>
             <div>
-              <h3 className="font-display text-sm tracking-widest text-[hsl(var(--foreground))] mb-2">
-                LOCATION
+              <h3 className="font-display text-xs tracking-[0.2em] text-[hsl(var(--foreground))] mb-2 uppercase">
+                Location
               </h3>
               <p className="text-[hsl(var(--muted-foreground))] text-sm">
                 Thane District, Maharashtra, India
@@ -228,7 +228,7 @@ export default function Footer() {
 
         <div className="border-t border-[hsl(var(--border))] pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-[hsl(var(--muted-foreground))] text-xs tracking-wide text-center sm:text-left">
-            Built with purpose for the children of Thane. © 2025 PCube
+            Built with purpose for the children of Thane. © 2026 PCube
             Foundation. All rights reserved.
           </p>
           <p className="text-[hsl(var(--muted-foreground))] text-xs">

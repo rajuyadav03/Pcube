@@ -162,13 +162,13 @@ export default function Programs() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="font-display text-sm tracking-widest text-[hsl(var(--primary))]">
-              MULTI-SPORT ECOSYSTEM
+            <span className="font-display text-xs tracking-[0.3em] text-[hsl(var(--primary))] uppercase border-b border-[hsl(var(--primary))]/30 pb-1">
+              Multi-Sport Ecosystem
             </span>
-            <h1 className="font-display text-[clamp(3rem,9vw,7rem)] tracking-tight text-[hsl(var(--foreground))] mt-2 leading-none">
-              IN PLAY
+            <h1 className="font-display text-[clamp(3rem,9vw,7rem)] tracking-tighter text-[hsl(var(--foreground))] mt-6 leading-[0.85]">
+              OUR <span className="font-editorial italic font-normal text-[hsl(var(--primary))]">Programs</span>
             </h1>
-            <p className="mt-6 text-[hsl(var(--muted-foreground))] text-lg max-w-2xl leading-relaxed">
+            <p className="mt-8 text-[hsl(var(--muted-foreground))] text-lg md:text-xl max-w-2xl leading-relaxed">
               PCube Foundation is not a hockey organization. It is a sports
               ecosystem builder that started with hockey and is growing outward
               — systematically, sustainably, with the same commitment to
@@ -240,11 +240,11 @@ export default function Programs() {
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="mb-12">
-            <span className="font-display text-sm tracking-widest text-[hsl(var(--primary))]">
-              WHAT'S COMING
+            <span className="font-display text-xs tracking-[0.3em] text-[hsl(var(--primary))] uppercase border-b border-[hsl(var(--primary))]/30 pb-1">
+              What's Coming
             </span>
-            <h2 className="font-display text-4xl lg:text-5xl tracking-tight text-[hsl(var(--foreground))] mt-2">
-              THE ROADMAP
+            <h2 className="font-display text-5xl lg:text-7xl tracking-tighter text-[hsl(var(--foreground))] mt-6 leading-[0.9]">
+              THE <span className="font-editorial italic font-normal text-[hsl(var(--primary))]">Roadmap</span>
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -282,11 +282,11 @@ export default function Programs() {
       <section aria-label="How programs work" className="py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="mb-12">
-            <span className="font-display text-sm tracking-widest text-[hsl(var(--primary))]">
-              THE PROCESS
+            <span className="font-display text-xs tracking-[0.3em] text-[hsl(var(--primary))] uppercase border-b border-[hsl(var(--primary))]/30 pb-1">
+              The Process
             </span>
-            <h2 className="font-display text-4xl lg:text-5xl tracking-tight text-[hsl(var(--foreground))] mt-2">
-              HOW IT WORKS
+            <h2 className="font-display text-5xl lg:text-7xl tracking-tighter text-[hsl(var(--foreground))] mt-6 leading-[0.9]">
+              HOW IT <span className="font-editorial italic font-normal text-[hsl(var(--primary))]">Works</span>
             </h2>
           </div>
           <div className="flex flex-col lg:flex-row gap-0">

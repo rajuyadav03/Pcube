@@ -108,21 +108,20 @@ export default function GetInvolved() {
           <motion.div
             initial={prefersReduced ? {} : { opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: "circOut" }}
+            className="md:w-2/3"
           >
-            <span className="font-display text-sm tracking-widest text-[hsl(var(--primary))]">
-              JOIN THE MOVEMENT
+            <span className="font-display text-xs tracking-[0.2em] text-[hsl(var(--primary))] uppercase">
+              Join the Movement
             </span>
-            <h1 className="font-display text-[clamp(3rem,9vw,7rem)] tracking-tight text-[hsl(var(--foreground))] mt-2 leading-none">
+            <h1 className="font-display text-[clamp(4rem,10vw,8rem)] tracking-tighter text-[hsl(var(--foreground))] mt-4 leading-[0.85] uppercase">
               THIS ISN'T
               <br />
-              VOLUNTEERING.
+              <span className="text-[hsl(var(--muted-foreground))]">VOLUNTEERING.</span>
               <br />
-              <span className="text-[hsl(var(--primary))]">
-                THIS IS BUILDING.
-              </span>
+              <span className="text-[hsl(var(--primary))]">THIS IS BUILDING.</span>
             </h1>
-            <p className="mt-6 text-[hsl(var(--muted-foreground))] text-lg max-w-2xl leading-relaxed">
+            <p className="mt-8 text-[hsl(var(--muted-foreground))] text-lg max-w-xl leading-relaxed font-editorial italic lg:text-2xl">
               PCube Foundation is run by people who believe that the most
               important thing they can do with their time is give
               underprivileged children a fighting chance at national sport. If
@@ -134,15 +133,17 @@ export default function GetInvolved() {
 
       <section aria-label="Volunteer roles" className="py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="mb-12">
-            <span className="font-display text-sm tracking-widest text-[hsl(var(--primary))]">
-              OPEN ROLES
-            </span>
-            <h2 className="font-display text-4xl lg:text-5xl tracking-tight text-[hsl(var(--foreground))] mt-2">
-              WHERE YOU FIT
-            </h2>
+          <div className="mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            <div className="max-w-2xl">
+              <span className="font-display text-xs tracking-[0.2em] text-[hsl(var(--primary))] uppercase">
+                Open Roles
+              </span>
+              <h2 className="font-display text-5xl lg:text-7xl tracking-tighter text-[hsl(var(--foreground))] mt-2 leading-[0.85] uppercase">
+                Where You Fit
+              </h2>
+            </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {roles.map((role, i) => (
               <VolunteerRole key={role.title} {...role} index={i} />
             ))}
@@ -155,12 +156,12 @@ export default function GetInvolved() {
         className="py-20 lg:py-28 bg-[hsl(var(--card))]"
       >
         <div className="max-w-3xl mx-auto px-6 lg:px-10">
-          <div className="mb-10">
-            <span className="font-display text-sm tracking-widest text-[hsl(var(--primary))]">
-              APPLY NOW
+          <div className="mb-16 text-center max-w-2xl mx-auto">
+            <span className="font-display text-xs tracking-[0.2em] text-[hsl(var(--primary))] uppercase bg-[hsl(var(--primary))]/10 px-3 py-1 rounded-full border border-[hsl(var(--primary))]/20">
+              Apply Now
             </span>
-            <h2 className="font-display text-4xl tracking-tight text-[hsl(var(--foreground))] mt-2">
-              JOIN THE TEAM
+            <h2 className="font-display text-5xl lg:text-6xl tracking-tighter text-[hsl(var(--foreground))] mt-6 uppercase leading-none">
+              Join the Team
             </h2>
           </div>
 
@@ -190,10 +191,10 @@ export default function GetInvolved() {
               className="space-y-6"
               data-testid="volunteer-application-form"
             >
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label className="font-display text-xs tracking-widest text-[hsl(var(--muted-foreground))] block mb-2">
-                    NAME
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <div className="space-y-1">
+                  <label className="font-display text-xs tracking-[0.1em] text-[hsl(var(--muted-foreground))] block uppercase">
+                    Name
                   </label>
                   <input
                     {...register("name")}
@@ -207,9 +208,9 @@ export default function GetInvolved() {
                     </p>
                   )}
                 </div>
-                <div>
-                  <label className="font-display text-xs tracking-widest text-[hsl(var(--muted-foreground))] block mb-2">
-                    EMAIL
+                <div className="space-y-1">
+                  <label className="font-display text-xs tracking-[0.1em] text-[hsl(var(--muted-foreground))] block uppercase">
+                    Email
                   </label>
                   <input
                     type="email"
@@ -224,9 +225,9 @@ export default function GetInvolved() {
                     </p>
                   )}
                 </div>
-                <div>
-                  <label className="font-display text-xs tracking-widest text-[hsl(var(--muted-foreground))] block mb-2">
-                    PHONE
+                <div className="space-y-1">
+                  <label className="font-display text-xs tracking-[0.1em] text-[hsl(var(--muted-foreground))] block uppercase">
+                    Phone
                   </label>
                   <input
                     {...register("phone")}
@@ -240,9 +241,9 @@ export default function GetInvolved() {
                     </p>
                   )}
                 </div>
-                <div>
-                  <label className="font-display text-xs tracking-widest text-[hsl(var(--muted-foreground))] block mb-2">
-                    AVAILABILITY
+                <div className="space-y-1">
+                  <label className="font-display text-xs tracking-[0.1em] text-[hsl(var(--muted-foreground))] block uppercase">
+                    Availability
                   </label>
                   <input
                     {...register("availability")}
@@ -258,9 +259,9 @@ export default function GetInvolved() {
                 </div>
               </div>
 
-              <div>
-                <label className="font-display text-xs tracking-widest text-[hsl(var(--muted-foreground))] block mb-3">
-                  ROLE INTEREST (SELECT ALL THAT APPLY)
+              <div className="space-y-3">
+                <label className="font-display text-xs tracking-[0.1em] text-[hsl(var(--muted-foreground))] block uppercase">
+                  Role Interest (Select All That Apply)
                 </label>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                   {roles.map((role) => (
@@ -286,9 +287,9 @@ export default function GetInvolved() {
                 )}
               </div>
 
-              <div>
-                <label className="font-display text-xs tracking-widest text-[hsl(var(--muted-foreground))] block mb-2">
-                  WHY YOU WANT TO JOIN
+              <div className="space-y-2">
+                <label className="font-display text-xs tracking-[0.1em] text-[hsl(var(--muted-foreground))] block uppercase">
+                  Why You Want To Join
                 </label>
                 <textarea
                   {...register("motivation")}
@@ -304,9 +305,9 @@ export default function GetInvolved() {
                 )}
               </div>
 
-              <div>
-                <label className="font-display text-xs tracking-widest text-[hsl(var(--muted-foreground))] block mb-2">
-                  RELEVANT EXPERIENCE (OPTIONAL)
+              <div className="space-y-2">
+                <label className="font-display text-xs tracking-[0.1em] text-[hsl(var(--muted-foreground))] block uppercase">
+                  Relevant Experience (Optional)
                 </label>
                 <textarea
                   {...register("experience")}
@@ -334,12 +335,12 @@ export default function GetInvolved() {
 
       <section aria-label="Community programs" className="py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="mb-12">
-            <span className="font-display text-sm tracking-widest text-[hsl(var(--primary))]">
-              COMMUNITY PROGRAMS
+          <div className="mb-16">
+            <span className="font-display text-xs tracking-[0.2em] text-[hsl(var(--primary))] uppercase">
+              Community Programs
             </span>
-            <h2 className="font-display text-4xl lg:text-5xl tracking-tight text-[hsl(var(--foreground))] mt-2">
-              BEYOND THE FIELD
+            <h2 className="font-display text-5xl lg:text-7xl tracking-tighter text-[hsl(var(--foreground))] mt-2 leading-[0.85] uppercase">
+              Beyond the Field
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -363,10 +364,13 @@ export default function GetInvolved() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.12, duration: 0.6 }}
-                className="bg-[hsl(var(--card))] border border-[hsl(var(--border))] p-8"
+                className="bg-[hsl(var(--background))] border border-[hsl(var(--border))] p-8 hover:border-[hsl(var(--primary))]/30 transition-colors"
               >
-                <h3 className="font-display text-xl tracking-wider text-[hsl(var(--foreground))] mb-3">
-                  {prog.title.toUpperCase()}
+                <div className="w-10 h-10 border border-[hsl(var(--border))] rounded-full flex items-center justify-center mb-6">
+                  <span className="font-display text-lg text-[hsl(var(--primary))]">0{i+1}</span>
+                </div>
+                <h3 className="font-display text-2xl tracking-wider text-[hsl(var(--foreground))] mb-3 uppercase">
+                  {prog.title}
                 </h3>
                 <p className="text-[hsl(var(--muted-foreground))] text-sm leading-relaxed">
                   {prog.desc}

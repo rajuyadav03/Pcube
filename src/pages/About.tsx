@@ -134,11 +134,11 @@ export default function About() {
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
-            <span className="font-display text-sm tracking-widest text-[hsl(var(--primary))]">
-              THE BEGINNING
+            <span className="font-display text-xs tracking-[0.3em] text-[hsl(var(--primary))] uppercase border-b border-[hsl(var(--primary))]/30 pb-1">
+              The Beginning
             </span>
-            <h2 className="font-display text-4xl lg:text-6xl tracking-tight text-[hsl(var(--foreground))] mt-2 mb-8">
-              WHERE WE CAME FROM
+            <h2 className="font-display text-5xl lg:text-7xl tracking-tighter text-[hsl(var(--foreground))] mt-6 mb-8 leading-[0.9]">
+              WHERE WE <span className="font-editorial italic font-normal text-[hsl(var(--primary))]">Came From</span>
             </h2>
             <div className="w-24 h-[2px] bg-[hsl(var(--primary))] mb-8" />
             <motion.div
@@ -319,11 +319,11 @@ export default function About() {
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="mb-12">
-            <span className="font-display text-sm tracking-widest text-[hsl(var(--primary))]">
-              OUR JOURNEY
+            <span className="font-display text-xs tracking-[0.3em] text-[hsl(var(--primary))] uppercase border-b border-[hsl(var(--primary))]/30 pb-1">
+              Our Journey
             </span>
-            <h2 className="font-display text-4xl lg:text-5xl tracking-tight text-[hsl(var(--foreground))] mt-2">
-              TRACKING PROGRESS
+            <h2 className="font-display text-5xl lg:text-7xl tracking-tighter text-[hsl(var(--foreground))] mt-6 leading-[0.9]">
+              TRACKING <span className="font-editorial italic font-normal text-[hsl(var(--primary))]">Progress</span>
             </h2>
           </div>
           <div className="relative">
@@ -370,11 +370,11 @@ export default function About() {
       <section aria-label="Leadership team" className="py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="mb-12">
-            <span className="font-display text-sm tracking-widest text-[hsl(var(--primary))]">
-              THE PEOPLE
+            <span className="font-display text-xs tracking-[0.3em] text-[hsl(var(--primary))] uppercase border-b border-[hsl(var(--primary))]/30 pb-1">
+              The People
             </span>
-            <h2 className="font-display text-4xl lg:text-5xl tracking-tight text-[hsl(var(--foreground))] mt-2">
-              WHO WE ARE
+            <h2 className="font-display text-5xl lg:text-7xl tracking-tighter text-[hsl(var(--foreground))] mt-6 leading-[0.9]">
+              WHO WE <span className="font-editorial italic font-normal text-[hsl(var(--primary))]">Are</span>
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

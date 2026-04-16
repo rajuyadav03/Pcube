@@ -86,14 +86,17 @@ export default function Contact() {
           <motion.div
             initial={prefersReduced ? {} : { opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: "circOut" }}
           >
-            <span className="font-display text-sm tracking-widest text-[hsl(var(--primary))]">
-              REACH OUT
+            <span className="font-display text-xs tracking-[0.2em] text-[hsl(var(--primary))] uppercase bg-[hsl(var(--primary))]/10 px-3 py-1 rounded-full border border-[hsl(var(--primary))]/20">
+              Reach Out
             </span>
-            <h1 className="font-display text-[clamp(3rem,9vw,7rem)] tracking-tight text-[hsl(var(--foreground))] mt-2 leading-none">
+            <h1 className="font-display text-[clamp(4rem,10vw,8rem)] tracking-tighter text-[hsl(var(--foreground))] mt-6 leading-[0.85] uppercase">
               CONTACT
             </h1>
+            <p className="mt-6 text-[hsl(var(--muted-foreground))] text-lg max-w-xl font-editorial italic lg:text-2xl">
+              We're always looking for partners, volunteers, and believers. Send us a message and we'll get back to you shortly.
+            </p>
           </motion.div>
         </div>
       </section>
@@ -130,9 +133,9 @@ export default function Contact() {
                   data-testid="contact-form"
                 >
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div className="group">
-                      <label className="font-display text-xs tracking-widest text-[hsl(var(--muted-foreground))] block mb-2">
-                        FULL NAME
+                    <div className="space-y-1">
+                      <label className="font-display text-xs tracking-[0.1em] text-[hsl(var(--muted-foreground))] block uppercase">
+                        Full Name
                       </label>
                       <input
                         {...register("name")}
@@ -146,9 +149,9 @@ export default function Contact() {
                         </p>
                       )}
                     </div>
-                    <div>
-                      <label className="font-display text-xs tracking-widest text-[hsl(var(--muted-foreground))] block mb-2">
-                        EMAIL
+                    <div className="space-y-1">
+                      <label className="font-display text-xs tracking-[0.1em] text-[hsl(var(--muted-foreground))] block uppercase">
+                        Email
                       </label>
                       <input
                         type="email"
@@ -163,9 +166,9 @@ export default function Contact() {
                         </p>
                       )}
                     </div>
-                    <div>
-                      <label className="font-display text-xs tracking-widest text-[hsl(var(--muted-foreground))] block mb-2">
-                        PHONE (OPTIONAL)
+                    <div className="space-y-1">
+                      <label className="font-display text-xs tracking-[0.1em] text-[hsl(var(--muted-foreground))] block uppercase">
+                        Phone (Optional)
                       </label>
                       <input
                         {...register("phone")}
@@ -174,9 +177,9 @@ export default function Contact() {
                         data-testid="input-contact-phone"
                       />
                     </div>
-                    <div>
-                      <label className="font-display text-xs tracking-widest text-[hsl(var(--muted-foreground))] block mb-2">
-                        SUBJECT
+                    <div className="space-y-1">
+                      <label className="font-display text-xs tracking-[0.1em] text-[hsl(var(--muted-foreground))] block uppercase">
+                        Subject
                       </label>
                       <select
                         {...register("subject")}
@@ -197,9 +200,9 @@ export default function Contact() {
                       )}
                     </div>
                   </div>
-                  <div>
-                    <label className="font-display text-xs tracking-widest text-[hsl(var(--muted-foreground))] block mb-2">
-                      MESSAGE
+                  <div className="space-y-2">
+                    <label className="font-display text-xs tracking-[0.1em] text-[hsl(var(--muted-foreground))] block uppercase">
+                      Message
                     </label>
                     <textarea
                       {...register("message")}
@@ -231,8 +234,8 @@ export default function Contact() {
             {/* INFO */}
             <div className="lg:col-span-2 space-y-10">
               <div>
-                <h3 className="font-display text-sm tracking-widest text-[hsl(var(--foreground))] mb-4">
-                  FIND US
+                <h3 className="font-display text-xs tracking-[0.2em] text-[hsl(var(--foreground))] mb-4 uppercase">
+                  Find Us
                 </h3>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
@@ -267,8 +270,8 @@ export default function Contact() {
               </div>
 
               <div>
-                <h3 className="font-display text-sm tracking-widest text-[hsl(var(--foreground))] mb-4">
-                  FOLLOW THE JOURNEY
+                <h3 className="font-display text-xs tracking-[0.2em] text-[hsl(var(--foreground))] mb-4 uppercase">
+                  Follow The Journey
                 </h3>
                 <div className="space-y-3">
                   {socials.map(({ href, icon: Icon, label }) => (
@@ -293,9 +296,9 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="border border-[hsl(var(--border))] p-6">
-                <h3 className="font-display text-sm tracking-widest text-[hsl(var(--primary))] mb-2">
-                  MEDIA INQUIRIES
+              <div className="border border-[hsl(var(--border))] p-6 hover:border-[hsl(var(--primary))]/30 transition-colors">
+                <h3 className="font-display text-xs tracking-[0.2em] text-[hsl(var(--primary))] mb-4 uppercase">
+                  Media Inquiries
                 </h3>
                 <p className="text-[hsl(var(--muted-foreground))] text-sm leading-relaxed">
                   For press coverage, photography access, or interview requests,

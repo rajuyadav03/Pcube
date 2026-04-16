@@ -81,11 +81,11 @@ export default function Impact() {
             transition={{ duration: 0.6 }}
             className="mb-16"
           >
-            <span className="font-display text-sm tracking-widest text-[hsl(var(--primary))]">
-              THE NUMBERS
+            <span className="font-display text-xs tracking-[0.3em] text-[hsl(var(--primary))] uppercase border-b border-[hsl(var(--primary))]/30 pb-1">
+              The Numbers
             </span>
-            <h1 className="font-display text-[clamp(3rem,9vw,7rem)] tracking-tight text-[hsl(var(--foreground))] mt-2 leading-none">
-              IMPACT
+            <h1 className="font-display text-[clamp(3rem,9vw,7rem)] tracking-tighter text-[hsl(var(--foreground))] mt-6 leading-[0.85]">
+              OUR <span className="font-editorial italic font-normal text-[hsl(var(--primary))]">Impact</span>
             </h1>
           </motion.div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:divide-x lg:divide-[hsl(var(--border))]">
@@ -100,11 +100,11 @@ export default function Impact() {
       <section aria-label="National champions" className="py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="mb-12">
-            <span className="font-display text-sm tracking-widest text-[hsl(var(--primary))]">
-              PROOF THAT IT WORKS
+            <span className="font-display text-xs tracking-[0.3em] text-[hsl(var(--primary))] uppercase border-b border-[hsl(var(--primary))]/30 pb-1">
+              Proof That It Works
             </span>
-            <h2 className="font-display text-4xl lg:text-5xl tracking-tight text-[hsl(var(--foreground))] mt-2">
-              THE PROSPECTS
+            <h2 className="font-display text-5xl lg:text-7xl tracking-tighter text-[hsl(var(--foreground))] mt-6 leading-[0.9]">
+              THE <span className="font-editorial italic font-normal text-[hsl(var(--primary))]">Prospects</span>
             </h2>
             <p className="mt-4 text-[hsl(var(--muted-foreground))] max-w-2xl">
               Two children from Thane are now national-level competitors. Their
@@ -140,11 +140,11 @@ export default function Impact() {
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="mb-12">
-            <span className="font-display text-sm tracking-widest text-[hsl(var(--primary))]">
-              GROWTH OVER TIME
+            <span className="font-display text-xs tracking-[0.3em] text-[hsl(var(--primary))] uppercase border-b border-[hsl(var(--primary))]/30 pb-1">
+              Growth Over Time
             </span>
-            <h2 className="font-display text-4xl lg:text-5xl tracking-tight text-[hsl(var(--foreground))] mt-2">
-              IN NUMBERS
+            <h2 className="font-display text-5xl lg:text-7xl tracking-tighter text-[hsl(var(--foreground))] mt-6 leading-[0.9]">
+              IN <span className="font-editorial italic font-normal text-[hsl(var(--primary))]">Numbers</span>
             </h2>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -207,11 +207,11 @@ export default function Impact() {
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="font-display text-sm tracking-widest text-[hsl(var(--primary))]">
-                BEYOND THE INDIVIDUAL
+              <span className="font-display text-xs tracking-[0.3em] text-[hsl(var(--primary))] uppercase border-b border-[hsl(var(--primary))]/30 pb-1">
+                Beyond the Individual
               </span>
-              <h2 className="font-display text-4xl lg:text-5xl tracking-tight text-[hsl(var(--foreground))] mt-2 mb-8">
-                THE RIPPLE EFFECT
+              <h2 className="font-display text-5xl lg:text-7xl tracking-tighter text-[hsl(var(--foreground))] mt-6 mb-8 leading-[0.9]">
+                THE <span className="font-editorial italic font-normal text-[hsl(var(--primary))]">Ripple Effect</span>
               </h2>
             </div>
             <div className="space-y-6 text-[hsl(var(--muted-foreground))] leading-relaxed">

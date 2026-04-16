@@ -45,21 +45,20 @@ export default function Donate() {
           <motion.div
             initial={prefersReduced ? {} : { opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.8, ease: "circOut" }}
+            className="md:w-3/4"
           >
-            <span className="font-display text-sm tracking-widest text-[hsl(var(--primary))]">
-              JOIN THE MISSION
+            <span className="font-display text-xs tracking-[0.2em] text-[hsl(var(--primary))] uppercase">
+              Join the Mission
             </span>
-            <h1 className="font-display text-[clamp(3rem,9vw,7rem)] tracking-tight text-[hsl(var(--foreground))] mt-2 leading-none">
+            <h1 className="font-display text-[clamp(4rem,10vw,8rem)] tracking-tighter text-[hsl(var(--foreground))] mt-4 leading-[0.85] uppercase">
               YOU'RE NOT
               <br />
-              DONATING.
+              <span className="text-[hsl(var(--muted-foreground))]">DONATING.</span>
               <br />
-              <span className="text-[hsl(var(--primary))]">
-                YOU'RE INVESTING.
-              </span>
+              <span className="text-[hsl(var(--primary))]">YOU'RE INVESTING.</span>
             </h1>
-            <p className="mt-6 text-[hsl(var(--muted-foreground))] text-lg max-w-2xl leading-relaxed">
+            <p className="mt-8 text-[hsl(var(--muted-foreground))] text-lg max-w-2xl leading-relaxed font-editorial italic lg:text-2xl">
               Every rupee you put into PCube Foundation is a direct investment
               in a child's shot at the national championship podium. You are not
               a benefactor. You are a partner in one of the most specific,
@@ -72,13 +71,15 @@ export default function Donate() {
       {/* DONATION SELECTOR */}
       <section aria-label="Choose donation amount" className="py-20 lg:py-28">
         <div className="max-w-4xl mx-auto px-6 lg:px-10">
-          <div className="mb-10">
-            <span className="font-display text-sm tracking-widest text-[hsl(var(--primary))]">
-              CHOOSE YOUR INVESTMENT
-            </span>
-            <h2 className="font-display text-4xl tracking-tight text-[hsl(var(--foreground))] mt-2">
-              WHAT YOUR RUPEES DO
-            </h2>
+          <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div className="max-w-2xl">
+              <span className="font-display text-xs tracking-[0.2em] text-[hsl(var(--primary))] uppercase">
+                Choose Your Investment
+              </span>
+              <h2 className="font-display text-5xl lg:text-7xl tracking-tighter text-[hsl(var(--foreground))] mt-2 uppercase leading-[0.85]">
+                What Your Rupees Do
+              </h2>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
@@ -178,13 +179,15 @@ export default function Donate() {
         className="py-20 lg:py-28 bg-[hsl(var(--card))]"
       >
         <div className="max-w-4xl mx-auto px-6 lg:px-10">
-          <div className="mb-10">
-            <span className="font-display text-sm tracking-widest text-[hsl(var(--primary))]">
-              FULL TRANSPARENCY
-            </span>
-            <h2 className="font-display text-4xl tracking-tight text-[hsl(var(--foreground))] mt-2">
-              WHERE EVERY RUPEE GOES
-            </h2>
+          <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div className="max-w-2xl">
+              <span className="font-display text-xs tracking-[0.2em] text-[hsl(var(--primary))] uppercase">
+                Full Transparency
+              </span>
+              <h2 className="font-display text-5xl lg:text-7xl tracking-tighter text-[hsl(var(--foreground))] mt-2 uppercase leading-[0.85]">
+                Where Every Rupee Goes
+              </h2>
+            </div>
           </div>
           <div className="space-y-4">
             {breakdown.map((item, i) => (
@@ -238,13 +241,15 @@ export default function Donate() {
         className="py-20 lg:py-28"
       >
         <div className="max-w-4xl mx-auto px-6 lg:px-10">
-          <div className="mb-10">
-            <span className="font-display text-sm tracking-widest text-[hsl(var(--primary))]">
-              TAX BENEFITS
-            </span>
-            <h2 className="font-display text-4xl tracking-tight text-[hsl(var(--foreground))] mt-2">
-              YOUR DEDUCTIONS
-            </h2>
+          <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div className="max-w-2xl">
+              <span className="font-display text-xs tracking-[0.2em] text-[hsl(var(--primary))] uppercase">
+                Tax Benefits
+              </span>
+              <h2 className="font-display text-5xl lg:text-7xl tracking-tighter text-[hsl(var(--foreground))] mt-2 uppercase leading-[0.85]">
+                Your Deductions
+              </h2>
+            </div>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="border border-[hsl(var(--primary))] p-8 bg-[hsl(var(--primary))]/5">

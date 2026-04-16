@@ -96,19 +96,22 @@ export default function Sponsors() {
           <motion.div
             initial={prefersReduced ? {} : { opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: "circOut" }}
+            className="md:w-3/4"
           >
-            <span className="font-display text-sm tracking-widest text-[hsl(var(--primary))]">
-              FOR CSR DECISION-MAKERS
+            <span className="font-display text-xs tracking-[0.2em] text-[hsl(var(--primary))] uppercase">
+              For CSR Decision-Makers
             </span>
-            <h1 className="font-display text-[clamp(2.5rem,8vw,6rem)] tracking-tight text-[hsl(var(--foreground))] mt-2 leading-none max-w-4xl">
-              THIS IS NOT A DONATION ASK.
+            <h1 className="font-display text-[clamp(4rem,10vw,8rem)] tracking-tighter text-[hsl(var(--foreground))] mt-4 leading-[0.85] uppercase">
+              THIS IS NOT A
+              <br />
+              <span className="text-[hsl(var(--muted-foreground))]">DONATION ASK.</span>
               <br />
               <span className="text-[hsl(var(--primary))]">
                 THIS IS A BUSINESS PROPOSAL.
               </span>
             </h1>
-            <p className="mt-6 text-[hsl(var(--muted-foreground))] text-lg max-w-2xl leading-relaxed">
+            <p className="mt-8 text-[hsl(var(--muted-foreground))] text-lg max-w-2xl leading-relaxed font-editorial italic lg:text-2xl">
               Partner with PCube Foundation and receive measurable brand
               visibility, documented social impact, and full CSR compliance —
               while funding one of Maharashtra's most active youth sports
@@ -121,13 +124,15 @@ export default function Sponsors() {
       {/* TIERS */}
       <section aria-label="Sponsorship tiers" className="py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="mb-12">
-            <span className="font-display text-sm tracking-widest text-[hsl(var(--primary))]">
-              PARTNERSHIP OPTIONS
-            </span>
-            <h2 className="font-display text-4xl lg:text-5xl tracking-tight text-[hsl(var(--foreground))] mt-2">
-              CHOOSE YOUR LEVEL
-            </h2>
+          <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div className="max-w-2xl">
+              <span className="font-display text-xs tracking-[0.2em] text-[hsl(var(--primary))] uppercase">
+                Partnership Options
+              </span>
+              <h2 className="font-display text-5xl lg:text-7xl tracking-tighter text-[hsl(var(--foreground))] mt-2 uppercase leading-[0.85]">
+                Choose Your Level
+              </h2>
+            </div>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {tiers.map((tier, i) => (
@@ -151,13 +156,13 @@ export default function Sponsors() {
         className="py-20 lg:py-28 bg-[hsl(var(--card))]"
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <span className="font-display text-sm tracking-widest text-[hsl(var(--primary))]">
-                THE CASE FOR PCUBE
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            <div className="md:w-[90%]">
+              <span className="font-display text-xs tracking-[0.2em] text-[hsl(var(--primary))] uppercase">
+                The Case for PCube
               </span>
-              <h2 className="font-display text-4xl lg:text-5xl tracking-tight text-[hsl(var(--foreground))] mt-2">
-                WHY US
+              <h2 className="font-display text-5xl lg:text-7xl tracking-tighter text-[hsl(var(--foreground))] mt-2 uppercase leading-[0.85]">
+                Why Us
               </h2>
             </div>
             <div className="space-y-6 text-[hsl(var(--muted-foreground))] leading-relaxed">
@@ -186,11 +191,11 @@ export default function Sponsors() {
       {/* CURRENT PARTNERS */}
       <section aria-label="Current partners" className="py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 text-center">
-          <span className="font-display text-sm tracking-widest text-[hsl(var(--primary))]">
-            FOUNDING PARTNERS
+          <span className="font-display text-xs tracking-[0.2em] text-[hsl(var(--primary))] uppercase">
+            Founding Partners
           </span>
-          <h2 className="font-display text-4xl tracking-tight text-[hsl(var(--foreground))] mt-2 mb-12">
-            JOIN OUR FOUNDERS
+          <h2 className="font-display text-5xl lg:text-7xl tracking-tighter text-[hsl(var(--foreground))] mt-2 mb-16 uppercase leading-[0.85]">
+            Join Our Founders
           </h2>
           <div className="border-2 border-dashed border-[hsl(var(--border))] p-16 flex items-center justify-center">
             <div className="text-center">
@@ -211,12 +216,12 @@ export default function Sponsors() {
         className="py-20 lg:py-28 bg-[hsl(var(--card))]"
       >
         <div className="max-w-3xl mx-auto px-6 lg:px-10">
-          <div className="mb-10">
-            <span className="font-display text-sm tracking-widest text-[hsl(var(--primary))]">
-              GET IN TOUCH
+          <div className="mb-16 text-center max-w-2xl mx-auto">
+            <span className="font-display text-xs tracking-[0.2em] text-[hsl(var(--primary))] uppercase bg-[hsl(var(--primary))]/10 px-3 py-1 rounded-full border border-[hsl(var(--primary))]/20">
+              Get In Touch
             </span>
-            <h2 className="font-display text-4xl tracking-tight text-[hsl(var(--foreground))] mt-2">
-              START A CONVERSATION
+            <h2 className="font-display text-5xl lg:text-6xl tracking-tighter text-[hsl(var(--foreground))] mt-6 uppercase leading-none">
+              Start A<br/>Conversation
             </h2>
           </div>
 
@@ -245,10 +250,10 @@ export default function Sponsors() {
               className="space-y-6"
               data-testid="sponsor-inquiry-form"
             >
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label className="font-display text-xs tracking-widest text-[hsl(var(--muted-foreground))] block mb-2">
-                    COMPANY NAME
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <div className="space-y-1">
+                  <label className="font-display text-xs tracking-[0.1em] text-[hsl(var(--muted-foreground))] block uppercase">
+                    Company Name
                   </label>
                   <input
                     {...register("companyName")}
@@ -262,9 +267,9 @@ export default function Sponsors() {
                     </p>
                   )}
                 </div>
-                <div>
-                  <label className="font-display text-xs tracking-widest text-[hsl(var(--muted-foreground))] block mb-2">
-                    CONTACT PERSON
+                <div className="space-y-1">
+                  <label className="font-display text-xs tracking-[0.1em] text-[hsl(var(--muted-foreground))] block uppercase">
+                    Contact Person
                   </label>
                   <input
                     {...register("contactPerson")}
@@ -278,9 +283,9 @@ export default function Sponsors() {
                     </p>
                   )}
                 </div>
-                <div>
-                  <label className="font-display text-xs tracking-widest text-[hsl(var(--muted-foreground))] block mb-2">
-                    EMAIL
+                <div className="space-y-1">
+                  <label className="font-display text-xs tracking-[0.1em] text-[hsl(var(--muted-foreground))] block uppercase">
+                    Email
                   </label>
                   <input
                     type="email"
@@ -295,9 +300,9 @@ export default function Sponsors() {
                     </p>
                   )}
                 </div>
-                <div>
-                  <label className="font-display text-xs tracking-widest text-[hsl(var(--muted-foreground))] block mb-2">
-                    PHONE
+                <div className="space-y-1">
+                  <label className="font-display text-xs tracking-[0.1em] text-[hsl(var(--muted-foreground))] block uppercase">
+                    Phone
                   </label>
                   <input
                     {...register("phone")}
@@ -311,9 +316,9 @@ export default function Sponsors() {
                     </p>
                   )}
                 </div>
-                <div>
-                  <label className="font-display text-xs tracking-widest text-[hsl(var(--muted-foreground))] block mb-2">
-                    INDUSTRY
+                <div className="space-y-1">
+                  <label className="font-display text-xs tracking-[0.1em] text-[hsl(var(--muted-foreground))] block uppercase">
+                    Industry
                   </label>
                   <input
                     {...register("industry")}
@@ -327,9 +332,9 @@ export default function Sponsors() {
                     </p>
                   )}
                 </div>
-                <div>
-                  <label className="font-display text-xs tracking-widest text-[hsl(var(--muted-foreground))] block mb-2">
-                    TIER INTEREST
+                <div className="space-y-1">
+                  <label className="font-display text-xs tracking-[0.1em] text-[hsl(var(--muted-foreground))] block uppercase">
+                    Tier Interest
                   </label>
                   <select
                     {...register("tier")}
@@ -348,9 +353,9 @@ export default function Sponsors() {
                   )}
                 </div>
               </div>
-              <div>
-                <label className="font-display text-xs tracking-widest text-[hsl(var(--muted-foreground))] block mb-2">
-                  MESSAGE
+              <div className="space-y-2">
+                <label className="font-display text-xs tracking-[0.1em] text-[hsl(var(--muted-foreground))] block uppercase">
+                  Message
                 </label>
                 <textarea
                   {...register("message")}
