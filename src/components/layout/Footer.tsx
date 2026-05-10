@@ -1,11 +1,13 @@
 import { Link } from "wouter";
 import { Facebook, Instagram, Youtube, Linkedin, Twitter } from "lucide-react";
+import { CertificatePopup } from "@/components/CertificatePopup";
+import { IMPACT_STATS } from "@/data/impact";
 
 const footerStats = [
   { value: "120+", label: "Athletes Trained" },
-  { value: "15", label: "State Selections" },
-  { value: "2", label: "National Players" },
-  { value: "40+", label: "Community Volunteers" },
+  { value: String(IMPACT_STATS.stateSelections), label: "State Selections" },
+  { value: String(IMPACT_STATS.nationalSelections), label: "National Players" },
+  { value: IMPACT_STATS.volunteers + "+", label: "Community Volunteers" },
 ];
 
 const partnerNames = [
@@ -106,7 +108,18 @@ export default function Footer() {
                 Get stories, player milestones, and upcoming events in your
                 inbox.
               </p>
-              <form className="space-y-3" aria-label="Newsletter signup form">
+              <form
+                className="space-y-3"
+                aria-label="Newsletter signup form"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const input = e.currentTarget.querySelector('input') as HTMLInputElement;
+                  if (input?.value) {
+                    alert('Thank you for subscribing! We will keep you updated.');
+                    input.value = '';
+                  }
+                }}
+              >
                 <label htmlFor="footer-newsletter" className="sr-only">
                   Email address
                 </label>
@@ -132,7 +145,7 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <img
-                src="/logo-2.png"
+                src="/PCUBE_LOGO.png"
                 alt="PCube Foundation logo"
                 className="w-10 h-10 rounded-sm object-cover"
                 loading="lazy"
@@ -157,14 +170,40 @@ export default function Footer() {
             </div>
             <div className="flex items-center gap-1 flex-wrap">
               {["Registered NGO", "12A Certified", "80G Certified"].map(
-                (badge) => (
-                  <span
-                    key={badge}
-                    className="text-[10px] font-medium tracking-wider px-2 py-1 border border-[hsl(var(--primary))] text-[hsl(var(--primary))]"
-                  >
-                    {badge.toUpperCase()}
-                  </span>
-                ),
+                (badge) => {
+                  const content = (
+                    <span
+                      key={badge}
+                      className="text-[10px] font-medium tracking-wider px-2 py-1 border border-[hsl(var(--primary))] text-[hsl(var(--primary))] cursor-pointer hover:bg-[hsl(var(--primary))]/10 transition-colors"
+                    >
+                      {badge.toUpperCase()}
+                    </span>
+                  );
+
+                  if (badge.includes("12A")) {
+                    return (
+                      <CertificatePopup key={badge} type="12A">
+                        {content}
+                      </CertificatePopup>
+                    );
+                  }
+                  if (badge.includes("80G")) {
+                    return (
+                      <CertificatePopup key={badge} type="80G">
+                        {content}
+                      </CertificatePopup>
+                    );
+                  }
+                  if (badge.includes("NGO")) {
+                    return (
+                      <CertificatePopup key={badge} type="NGO">
+                        {content}
+                      </CertificatePopup>
+                    );
+                  }
+
+                  return content;
+                }
               )}
             </div>
           </div>
@@ -231,9 +270,16 @@ export default function Footer() {
             Built with purpose for the children of Thane. © 2026 PCube
             Foundation. All rights reserved.
           </p>
-          <p className="text-[hsl(var(--muted-foreground))] text-xs">
-            Prospect · Progress · Play
-          </p>
+          <div className="flex items-center gap-4">
+            <Link href="/privacy">
+              <span className="text-[hsl(var(--muted-foreground))] text-xs hover:text-[hsl(var(--primary))] transition-colors cursor-pointer">
+                Privacy Policy
+              </span>
+            </Link>
+            <p className="text-[hsl(var(--muted-foreground))] text-xs">
+              Prospect · Progress · Play
+            </p>
+          </div>
         </div>
       </div>
     </footer>

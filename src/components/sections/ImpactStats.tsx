@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { IMPACT_STATS } from "@/data/impact";
 
 interface Stat {
   value: number;
@@ -10,17 +11,17 @@ interface Stat {
 
 const stats: Stat[] = [
   {
-    value: 2,
+    value: IMPACT_STATS.nationalSelections,
     label: "National Selections",
     description: "Students competing at the national level",
   },
   {
-    value: 47,
+    value: IMPACT_STATS.studentsSupported,
     label: "Children Supported",
     description: "Active athletes receiving coaching & mentorship",
   },
   {
-    value: 3,
+    value: IMPACT_STATS.yearsActive,
     suffix: "+",
     label: "Years Active",
     description: "Building structured pathways since 2021",
@@ -98,14 +99,6 @@ export default function ImpactStats() {
           {stats.map((stat) => (
             <AnimatedCounter key={stat.label} {...stat} />
           ))}
-        </div>
-        <div className="mt-12 text-center">
-          {/* <div className="inline-flex items-center gap-3 border border-[hsl(var(--primary))] px-6 py-3">
-            <span className="w-2 h-2 rounded-full bg-[hsl(var(--primary))] animate-pulse" />
-            <span className="font-display text-sm tracking-widest text-[hsl(var(--primary))]">
-              12A & 80G CERTIFIED · ALL DONATIONS TAX-EXEMPT
-            </span>
-          </div> */}
         </div>
       </div>
     </section>

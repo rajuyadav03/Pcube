@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 import { BentoGridGalleryDemo } from "@/components/ui/demo";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { usePageMeta } from "@/hooks/usePageMeta";
 
 const categories = [
   "All",
@@ -167,6 +168,11 @@ export default function Media() {
   const [lightboxItem, setLightboxItem] = useState<GalleryItem | null>(null);
   const prefersReduced = useReducedMotion();
 
+  usePageMeta(
+    "Media | PCube Foundation",
+    "Browse PCube Foundation's photo gallery and video library. See our athletes in training, competition highlights, community events, and behind-the-scenes moments."
+  );
+
   useEffect(() => {
     if (!lightboxItem) return;
 
@@ -311,21 +317,7 @@ export default function Media() {
         </div>
       </section>
 
-      {/* INTERACTIVE GALLERY */}
-      {/* <section
-        aria-label="Interactive gallery"
-        className="py-20 lg:py-28 border-t border-[hsl(var(--border))]"
-      >
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 mb-8">
-          <span className="font-display text-sm tracking-widest text-[hsl(var(--primary))]">
-            DRAG & EXPLORE
-          </span>
-          <h2 className="font-display text-4xl tracking-tight text-[hsl(var(--foreground))] mt-2">
-            INTERACTIVE GALLERY
-          </h2>
-        </div>
-        <BentoGridGalleryDemo />
-      </section> */}
+
 
       {/* VIDEO SECTION */}
       <section

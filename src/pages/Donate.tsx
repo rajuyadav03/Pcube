@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Shield, FileText, Download } from "lucide-react";
+import { Shield, FileText, Eye } from "lucide-react";
+import { CertificatePopup } from "@/components/CertificatePopup";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { usePageMeta } from "@/hooks/usePageMeta";
 
 const donationOptions = [
   { amount: 500, impact: "Training equipment for one week" },
@@ -24,7 +26,59 @@ const breakdown = [
 export default function Donate() {
   const [selected, setSelected] = useState<number | null>(2500);
   const [custom, setCustom] = useState("");
+  const [donating, setDonating] = useState(false);
   const prefersReduced = useReducedMotion();
+
+  usePageMeta(
+    "Donate | PCube Foundation",
+    "Support PCube Foundation with a tax-deductible donation. Every rupee funds coaching, equipment, and competition travel for underprivileged athletes in Thane, India."
+  );
+
+  const handleDonate = () => {
+    const amount = custom ? Number(custom) : selected;
+    if (!amount || isNaN(amount) || amount <= 0) {
+      alert("Please enter a valid amount");
+      return;
+    }
+
+    const options = {
+      key: "YOUR_RAZORPAY_KEY_ID", // Enter the Key ID generated from the Dashboard
+      amount: amount * 100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+      currency: "INR",
+      name: "PCube Foundation",
+      description: "Donation",
+      image: "/logo.svg",
+      handler: function (response: any) {
+        alert("Payment successful. Payment ID: " + response.razorpay_payment_id);
+      },
+      prefill: {
+        name: "",
+        email: "",
+        contact: "",
+      },
+      theme: {
+        color: "#f5a623",
+      },
+    };
+    setDonating(true);
+    if (typeof window !== "undefined" && (window as any).Razorpay) {
+        const rzp1 = new (window as any).Razorpay(options);
+        rzp1.open();
+        setDonating(false);
+    } else {
+        const script = document.createElement("script");
+        script.src = "https://checkout.razorpay.com/v1/checkout.js";
+        script.onload = () => {
+             const rzp1 = new (window as any).Razorpay(options);
+             rzp1.open();
+             setDonating(false);
+        };
+        script.onerror = () => {
+             setDonating(false);
+        };
+        document.body.appendChild(script);
+    }
+  };
 
   return (
     <main>
@@ -147,12 +201,14 @@ export default function Donate() {
 
           <div className="flex items-center gap-4 mb-4">
             <motion.button
+              onClick={handleDonate}
+              disabled={donating}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="flex-1 bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] font-display tracking-widest text-base sm:text-lg py-4 sm:py-5 hover:brightness-110 transition-all duration-200"
+              className="flex-1 bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] font-display tracking-widest text-base sm:text-lg py-4 sm:py-5 hover:brightness-110 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
               data-testid="button-proceed-donate"
             >
-              PROCEED TO DONATE →
+              {donating ? 'LOADING PAYMENT...' : 'PROCEED TO DONATE →'}
             </motion.button>
           </div>
 
@@ -162,17 +218,43 @@ export default function Donate() {
               "12A Certified",
               "80G Tax Exempt",
               "Secure",
-            ].map((badge) => (
-              <div
-                key={badge}
-                className="flex items-center gap-2 border border-[hsl(var(--border))] px-3 py-2"
-              >
-                <Shield size={12} className="text-[hsl(var(--primary))]" />
-                <span className="font-display text-[10px] tracking-widest text-[hsl(var(--muted-foreground))]">
-                  {badge.toUpperCase()}
-                </span>
-              </div>
-            ))}
+            ].map((badge) => {
+              const content = (
+                <div
+                  key={badge}
+                  className="flex items-center gap-2 border border-[hsl(var(--border))] px-3 py-2 cursor-pointer hover:border-[hsl(var(--primary))] transition-colors"
+                >
+                  <Shield size={12} className="text-[hsl(var(--primary))]" />
+                  <span className="font-display text-[10px] tracking-widest text-[hsl(var(--muted-foreground))]">
+                    {badge.toUpperCase()}
+                  </span>
+                </div>
+              );
+
+              if (badge.includes("12A")) {
+                return (
+                  <CertificatePopup key={badge} type="12A">
+                    {content}
+                  </CertificatePopup>
+                );
+              }
+              if (badge.includes("80G")) {
+                return (
+                  <CertificatePopup key={badge} type="80G">
+                    {content}
+                  </CertificatePopup>
+                );
+              }
+              if (badge.includes("NGO")) {
+                return (
+                  <CertificatePopup key={badge} type="NGO">
+                    {content}
+                  </CertificatePopup>
+                );
+              }
+
+              return content;
+            })}
           </div>
         </div>
       </section>
@@ -271,12 +353,14 @@ export default function Donate() {
               <p className="font-display text-xs tracking-widest text-[hsl(var(--muted-foreground))]">
                 REF: PCF/12A/2023
               </p>
-              <button
-                className="mt-4 flex items-center gap-2 text-[hsl(var(--primary))] text-sm hover:underline"
-                data-testid="button-download-12a"
-              >
-                <Download size={14} /> Download Certificate
-              </button>
+              <CertificatePopup type="12A">
+                <button
+                  className="mt-4 flex items-center gap-2 text-[hsl(var(--primary))] text-sm hover:underline cursor-pointer"
+                  data-testid="button-download-12a"
+                >
+                  <Eye size={14} /> View Certificate
+                </button>
+              </CertificatePopup>
             </div>
             <div className="border border-[hsl(var(--border))] p-6 sm:p-8">
               <span className="font-display text-4xl text-[hsl(var(--foreground))] block mb-4">
@@ -293,12 +377,14 @@ export default function Donate() {
               <p className="font-display text-xs tracking-widest text-[hsl(var(--muted-foreground))]">
                 REF: PCF/80G/2023
               </p>
-              <button
-                className="mt-4 flex items-center gap-2 text-[hsl(var(--primary))] text-sm hover:underline"
-                data-testid="button-download-80g"
-              >
-                <Download size={14} /> Download Certificate
-              </button>
+              <CertificatePopup type="80G">
+                <button
+                  className="mt-4 flex items-center gap-2 text-[hsl(var(--primary))] text-sm hover:underline cursor-pointer"
+                  data-testid="button-download-80g"
+                >
+                  <Eye size={14} /> View Certificate
+                </button>
+              </CertificatePopup>
             </div>
           </div>
         </div>

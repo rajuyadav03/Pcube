@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import VolunteerRole from "@/components/sections/VolunteerRole";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { usePageMeta } from "@/hooks/usePageMeta";
+import { sendEmail, TEMPLATE_IDS } from '@/lib/emailjs';
 
 const volunteerSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -67,6 +69,11 @@ export default function GetInvolved() {
   const [submitted, setSubmitted] = useState(false);
   const [selectedRoles, setSelectedRoles] = useState<string[]>([]);
 
+  usePageMeta(
+    "Get Involved | PCube Foundation",
+    "Volunteer with PCube Foundation. Apply as a coach, mentor, photographer, or organiser and help underprivileged athletes reach their potential."
+  );
+
   const {
     register,
     handleSubmit,
@@ -85,9 +92,22 @@ export default function GetInvolved() {
     setValue("roles", updated);
   };
 
-  const onSubmit = async (_data: VolunteerForm) => {
-    await new Promise((r) => setTimeout(r, 1000));
-    setSubmitted(true);
+  const onSubmit = async (data: VolunteerForm) => {
+    try {
+      await sendEmail(TEMPLATE_IDS.volunteer, {
+        from_name: data.name,
+        from_email: data.email,
+        phone: data.phone,
+        roles: selectedRoles.join(', '),
+        availability: data.availability,
+        motivation: data.motivation,
+        experience: data.experience || 'Not provided',
+      });
+      setSubmitted(true);
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      alert('Failed to submit application. Please email info@pcubefoundation.org directly.');
+    }
   };
 
   return (

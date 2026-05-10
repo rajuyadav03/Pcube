@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { SoccerBall, PersonSimpleRun, Baseball, HandsClapping, Racquet } from "@phosphor-icons/react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { usePageMeta } from "@/hooks/usePageMeta";
 
 const hockeyPillars = [
   {
@@ -29,35 +31,35 @@ const hockeyPillars = [
 const expansionSports = [
   {
     sport: "Football",
-    // icon: "⚽",
+    icon: SoccerBall,
     phase: "Phase 1 — 2025",
     description:
       "Ground-level talent identification across Thane's municipal schools, followed by structured coaching and district tournament participation.",
   },
   {
     sport: "Athletics",
-    // icon: "🏃",
+    icon: PersonSimpleRun,
     phase: "Phase 1 — 2025",
     description:
       "Track & field program with a focus on sprints, middle distance, and field events. Targeting state athletics championships within two years.",
   },
   {
     sport: "Cricket",
-    // icon: "🏏",
+    icon: Baseball,
     phase: "Phase 2 — 2026",
     description:
       "Batting, bowling, and fielding development with competitive league exposure and BCCI-pathway alignment.",
   },
   {
     sport: "Kabaddi",
-    // icon: "🤼",
+    icon: HandsClapping,
     phase: "Phase 2 — 2026",
     description:
       "Reviving traditional Indian sport with modern training methodology and systematic tournament pipeline.",
   },
   {
     sport: "Badminton",
-    // icon: "🏸",
+    icon: Racquet,
     phase: "Phase 3 — 2027",
     description:
       "Court-based program with technical development and inter-district tournament exposure targeting state ranking.",
@@ -140,6 +142,11 @@ function ExpandablePillar({
 export default function Programs() {
   const prefersReduced = useReducedMotion();
   const [activeStep, setActiveStep] = useState(0);
+
+  usePageMeta(
+    "Programs | PCube Foundation",
+    "Discover PCube Foundation's multi-sport programs including Field Hockey, Athletics, and our expansion roadmap for youth development in India."
+  );
 
   return (
     <main>
@@ -268,7 +275,7 @@ export default function Programs() {
                 className="bg-[hsl(var(--background))] border border-[hsl(var(--border))] p-6 hover:border-[hsl(var(--primary))]/40 transition-colors duration-300"
                 data-testid={`card-expansion-${sport.sport.toLowerCase()}`}
               >
-                <div className="text-3xl mb-4">{sport.icon}</div>
+                <div className="text-[hsl(var(--primary))] mb-4"><sport.icon size={32} /></div>
                 <h3 className="font-display text-2xl tracking-wider text-[hsl(var(--foreground))] mb-1">
                   {sport.sport.toUpperCase()}
                 </h3>

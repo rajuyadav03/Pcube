@@ -1,9 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Link } from "wouter";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
-  ArrowRight,
-  CaretDown,
   Users,
   Trophy,
   Medal,
@@ -19,6 +17,8 @@ import ProgramCard from "@/components/sections/ProgramCard";
 import StudentProfile from "@/components/sections/StudentProfile";
 import { BentoGridGalleryDemo } from "@/components/ui/demo";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { usePageMeta } from "@/hooks/usePageMeta";
+import { IMPACT_STATS } from "@/data/impact";
 
 const programs = [
   {
@@ -101,12 +101,12 @@ const impactHighlights = [
   },
   {
     label: "State Selections",
-    value: "15",
+    value: String(IMPACT_STATS.stateSelections),
     icon: Trophy,
   },
   {
     label: "National Players",
-    value: "02",
+    value: "0" + IMPACT_STATS.nationalSelections,
     icon: Medal,
   },
 ];
@@ -157,21 +157,10 @@ export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
   const prefersReduced = useReducedMotion();
 
-  useEffect(() => {
-    document.title =
-      "PCube Foundation – Empowering India's Future Athletes (Sports NGO)";
-
-    let descriptionMeta = document.querySelector(
-      'meta[name="description"]',
-    ) as HTMLMetaElement | null;
-    if (!descriptionMeta) {
-      descriptionMeta = document.createElement("meta");
-      descriptionMeta.name = "description";
-      document.head.appendChild(descriptionMeta);
-    }
-    descriptionMeta.content =
-      "PCube Foundation empowers rural youth through hockey and sports training. Bridging talented athletes to national success – learn how to join or support our mission.";
-  }, []);
+  usePageMeta(
+    "PCube Foundation – Empowering India's Future Athletes (Sports NGO)",
+    "PCube Foundation empowers rural youth through hockey and sports training. Bridging talented athletes to national success – learn how to join or support our mission."
+  );
 
   useEffect(() => {
     if (prefersReduced) return;
@@ -346,21 +335,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 1 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 hidden md:flex flex-col items-center gap-4"
-        >
-          <span className="font-display text-[10px] tracking-[0.3em] text-[hsl(var(--muted-foreground))] uppercase">
-            Scroll to Explore
-          </span>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-            className="w-px h-12 bg-gradient-to-b from-[hsl(var(--primary))] to-transparent"
-          />
-        </motion.div> */}
       </section>
 
       {/* ========= IMPACT HIGHLIGHTS ========= */}
@@ -703,7 +677,7 @@ export default function Home() {
             style={{ width: "max-content" }}
           >
             {programs.map((prog) => (
-              <ProgramCard key={prog.sport} {...prog} icon={null} />
+              <ProgramCard key={prog.sport} {...prog} icon="" />
             ))}
           </div>
         </div>

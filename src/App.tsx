@@ -14,6 +14,7 @@ import Sponsors from "@/pages/Sponsors";
 import GetInvolved from "@/pages/GetInvolved";
 import Media from "@/pages/Media";
 import Contact from "@/pages/Contact";
+import Privacy from "@/pages/Privacy";
 import NotFound from "@/pages/not-found";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -32,6 +33,7 @@ function AppRoutes() {
         <Route path="/get-involved" component={GetInvolved} />
         <Route path="/media" component={Media} />
         <Route path="/contact" component={Contact} />
+        <Route path="/privacy" component={Privacy} />
         <Route component={NotFound} />
       </Switch>
     </AnimatePresence>

@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { usePageMeta } from "@/hooks/usePageMeta";
+import { CertificatePopup } from "@/components/CertificatePopup";
 
 const milestones = [
   {
@@ -80,6 +82,10 @@ const team = [
 export default function About() {
   const prefersReduced = useReducedMotion();
 
+  usePageMeta(
+    "About | PCube Foundation",
+    "Learn about PCube Foundation — a Section 8 sports NGO in Thane, Maharashtra, dedicated to empowering underprivileged youth through structured sports programs."
+  );
   return (
     <main>
       <a
@@ -353,7 +359,21 @@ export default function About() {
                   </div>
                   <div className="flex-1 pb-8">
                     <h3 className="font-display text-xl tracking-wider text-[hsl(var(--foreground))] mb-1">
-                      {m.event.toUpperCase()}
+                      {m.event.includes("12A") ? (
+                        <CertificatePopup type="12A">
+                          <span className="cursor-pointer hover:text-[hsl(var(--primary))] transition-colors border-b border-[hsl(var(--primary))]/30 pb-0.5 inline-block">
+                            {m.event.toUpperCase()}
+                          </span>
+                        </CertificatePopup>
+                      ) : m.event.includes("80G") ? (
+                        <CertificatePopup type="80G">
+                          <span className="cursor-pointer hover:text-[hsl(var(--primary))] transition-colors border-b border-[hsl(var(--primary))]/30 pb-0.5 inline-block">
+                            {m.event.toUpperCase()}
+                          </span>
+                        </CertificatePopup>
+                      ) : (
+                        m.event.toUpperCase()
+                      )}
                     </h3>
                     <p className="text-[hsl(var(--muted-foreground))] text-sm leading-relaxed">
                       {m.description}

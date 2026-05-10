@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import SponsorTier from "@/components/sections/SponsorTier";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { usePageMeta } from "@/hooks/usePageMeta";
+import { sendEmail, TEMPLATE_IDS } from '@/lib/emailjs';
 
 const sponsorSchema = z.object({
   companyName: z.string().min(2, "Company name is required"),
@@ -64,6 +66,11 @@ export default function Sponsors() {
   const prefersReduced = useReducedMotion();
   const [submitted, setSubmitted] = useState(false);
 
+  usePageMeta(
+    "Sponsors | PCube Foundation",
+    "Partner with PCube Foundation as a CSR sponsor. Get measurable brand visibility, documented social impact, and full 80G compliance while funding youth sports development."
+  );
+
   const {
     register,
     handleSubmit,
@@ -72,9 +79,22 @@ export default function Sponsors() {
     resolver: zodResolver(sponsorSchema),
   });
 
-  const onSubmit = async (_data: SponsorForm) => {
-    await new Promise((r) => setTimeout(r, 1000));
-    setSubmitted(true);
+  const onSubmit = async (data: SponsorForm) => {
+    try {
+      await sendEmail(TEMPLATE_IDS.sponsor, {
+        company_name: data.companyName,
+        contact_person: data.contactPerson,
+        from_email: data.email,
+        phone: data.phone,
+        industry: data.industry,
+        tier: data.tier,
+        message: data.message,
+      });
+      setSubmitted(true);
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      alert('Failed to send inquiry. Please email info@pcubefoundation.org directly.');
+    }
   };
 
   return (

@@ -2,12 +2,14 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import StudentProfile from "@/components/sections/StudentProfile";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { IMPACT_STATS } from "@/data/impact";
+import { usePageMeta } from "@/hooks/usePageMeta";
 
 const impactData = [
-  { label: "Students Supported", value: 47 },
-  { label: "National Selections", value: 2 },
-  { label: "Active Programs", value: 1 },
-  { label: "Years Active", value: 3 },
+  { label: "Students Supported", value: IMPACT_STATS.studentsSupported },
+  { label: "National Selections", value: IMPACT_STATS.nationalSelections },
+  { label: "Active Programs", value: IMPACT_STATS.activePrograms },
+  { label: "Years Active", value: IMPACT_STATS.yearsActive },
 ];
 
 function Counter({ value, label }: { value: number; label: string }) {
@@ -58,6 +60,11 @@ function Counter({ value, label }: { value: number; label: string }) {
 
 export default function Impact() {
   const prefersReduced = useReducedMotion();
+
+  usePageMeta(
+    "Impact | PCube Foundation",
+    "See the real-world impact of PCube Foundation. Discover student success stories, growth metrics, and how we are empowering youth athletes in Thane, India."
+  );
 
   return (
     <main>

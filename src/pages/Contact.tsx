@@ -13,6 +13,8 @@ import {
   Mail,
 } from "lucide-react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
+import { usePageMeta } from "@/hooks/usePageMeta";
+import { sendEmail, TEMPLATE_IDS } from '@/lib/emailjs';
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -55,6 +57,11 @@ export default function Contact() {
   const prefersReduced = useReducedMotion();
   const [submitted, setSubmitted] = useState(false);
 
+  usePageMeta(
+    "Contact | PCube Foundation",
+    "Get in touch with PCube Foundation. Reach out for partnerships, volunteering, media inquiries, or general questions about our sports development programs in Thane."
+  );
+
   const {
     register,
     handleSubmit,
@@ -63,9 +70,20 @@ export default function Contact() {
     resolver: zodResolver(contactSchema),
   });
 
-  const onSubmit = async (_data: ContactForm) => {
-    await new Promise((r) => setTimeout(r, 1000));
-    setSubmitted(true);
+  const onSubmit = async (data: ContactForm) => {
+    try {
+      await sendEmail(TEMPLATE_IDS.contact, {
+        from_name: data.name,
+        from_email: data.email,
+        phone: data.phone || 'Not provided',
+        subject: data.subject,
+        message: data.message,
+      });
+      setSubmitted(true);
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      alert('Failed to send message. Please email us directly at info@pcubefoundation.org');
+    }
   };
 
   return (
